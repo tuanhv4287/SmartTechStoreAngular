@@ -33,7 +33,28 @@
   .form-control::-ms-input-placeholder { /*Microsoft edge*/
     color: rgba(255, 255, 255, 0.5);
   }
-  .product-item{
+  .intro-section{
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.thumbnail-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.thumbnail-item{
+    width: 120px;
+    height: 120px;
+    margin-right: 5px;
+    //Thêm khoảng cách giữa mỗi ảnh
+}
+.thumbnail-item:last-child{
+    margin-right: 0px;
+    //xóa khoảng cách ngang ảnh cuối cùng
+}
+.product-item{
     background-color: rgb(19, 23, 42);
     border: 1px solid rgb(35, 39, 61);
     border-radius: 20px;
@@ -59,3 +80,5 @@
   .space-x{
     margin: 0 5px;
   }
+
+  
