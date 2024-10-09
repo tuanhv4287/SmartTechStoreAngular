@@ -5,8 +5,16 @@
       <div class="login-form mx-auto">
         <h2 class="login-header">Đăng nhập</h2>
         <div class="form-group">
-          <label for="">Email/Phone</label>
-          <input type="text" class="form-control" id="email" />
+          <label for="phoneNumber">Phone</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phoneNumber"
+            [(ngModel)]="phoneNumber"
+            name="phone"
+            (input)="onPhoneChange()"
+            (focus)="loginForm.form.markAllAsTouched()"
+          />
           <div class="divider-nospace"></div>
         </div>
         <div class="mt-5"></div>
@@ -17,6 +25,8 @@
             class="form-control"
             placeholder="ít nhất 3 ký tự"
             id="password"
+            [(ngModel)]="password"
+            name="password"
           />
           <i class="password-toggle fas fa-eye-slash"></i>
           <div class="divider-nospace"></div>
@@ -24,7 +34,12 @@
         <div class="form-group">
           <div class="form-check checkbox-text">
             <span style="display: flex">
-              <input type="checkbox" class="form-check-input" id="remember" />
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="remember"
+                [(ngModel)]="rememberMe"
+              />
               <label class="form-check-label text-start" for="remember">
                 Ghi nhớ đăng nhập
               </label>
@@ -39,7 +54,9 @@
             <option>Admin</option>
           </select>
         </div>
-        <button type="button" class="login-button">Đăng nhập</button>
+        <button type="button" class="login-button" (click)="login()">
+          Đăng nhập
+        </button>
         <div class="divider"></div>
         <p class="text-center">
           Bạn chưa đăng ký?

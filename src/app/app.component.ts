@@ -10,7 +10,7 @@ import { DetailProductComponent } from "./detail-product/detail-product.componen
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, OrderComponent, OrderConfirmComponent, LoginComponent, RegisterComponent, DetailProductComponent],
+  imports: [RouterOutlet, HomeComponent, OrderComponent, OrderConfirmComponent, LoginComponent, RegisterComponent, DetailProductComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
