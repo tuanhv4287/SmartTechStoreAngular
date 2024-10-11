@@ -8,7 +8,18 @@ import {
   HttpClientModule, 
   HTTP_INTERCEPTORS 
 } from '@angular/common/http';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(), provideHttpClient()]
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }), 
+    provideRouter(routes), 
+    provideClientHydration(), 
+    provideHttpClient(), 
+    {
+    provide : HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true,
+    }
+  ]
 };

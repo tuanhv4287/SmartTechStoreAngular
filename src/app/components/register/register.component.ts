@@ -3,11 +3,8 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import { HttpClient,   } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { error } from 'console';
-import { HttpClientModule } from '@angular/common/http';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
