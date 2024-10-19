@@ -11,13 +11,20 @@
       type="text"
       class="form-control search-input"
       placeholder="Tìm sản phẩm"
+      [(ngModel)]="keyword"
     />
-    <select class="form-control product-category">
-      <option selected disabled>Danh mục sản phẩm</option>
-      <option value="Đồ điện tử">Đồ điện tử</option>
-      <option value="Hải sản">Hải sản</option>
-      <option value="Bánh kẹo">Bánh kẹo</option>
+    <select
+      class="form-control product-category"
+      [(ngModel)]="selectedCategoryId"
+    >
+      <option [value]="0">Tất cả</option>
+      <option *ngFor="let category of categories" [value]="category.id">
+        {{ category.name }}
+      </option>
     </select>
+    <button class="btn btn-primary ml-2" (click)="searchProducts()">
+      Tìm kiếm
+    </button>
   </div>
   <div class="row">
     <div class="col-lg-4 col-md-6" *ngFor="let product of products">

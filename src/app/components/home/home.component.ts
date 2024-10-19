@@ -7,11 +7,14 @@ import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Category } from '../../models/category';
+import { FormsModule } from '@angular/forms';
+import { error } from 'node:console';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, DetailProductComponent, NgFor, NgIf, NgClass],
+  imports: [HeaderComponent, FooterComponent, DetailProductComponent, NgFor, NgIf, NgClass, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -27,16 +30,20 @@ export class HomeComponent implements OnInit{
   keyword:string = "";
 
   
-  constructor( private productService: ProductService){
+  constructor( private productService: ProductService,
+                private categoryService: CategoryService
+  ){
 
   }
 
   ngOnInit(): void {
     this.getProducts(this.keyword, this.selectedCategoryId, this.currentPage, this.itemsPerPage);
+    this.getCategories(1,100);
   }
   getProducts(keyword: string, selectedCategoryId: number, page: number, limit: number) {
     this.productService.getProducts(keyword, selectedCategoryId, page, limit).subscribe({
       next: (response: any) => {
+        debugger
         response.products.forEach((product: Product) => {          
           product.url = `${environment.apiBaseUrl}/products/images/${product.thumbnail}`;
         });
@@ -45,9 +52,25 @@ export class HomeComponent implements OnInit{
         this.visiblePages = this.generateVisiblePageArray(this.currentPage, this.totalPages);
       },
       complete: () =>{
+        debugger
       },
       error: (error: any) =>{
+        debugger
         console.error('Error fetching products:', error);
+      }
+    })
+  }
+  getCategories(page: number, limit: number){
+    this.categoryService.getCategories(page,limit).subscribe({
+      next:(categories: Category[])=>{
+        debugger
+        this.categories = categories;
+      },
+      complete: ()=>{
+
+      },
+      error: (error: any)=>{
+        console.error('Error fetching categories',error)
       }
     })
   }
