@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-order-confirm',
@@ -9,6 +11,7 @@ import { FooterComponent } from '../footer/footer.component';
   templateUrl: './order-confirm.component.html',
   styleUrl: './order-confirm.component.scss'
 })
-export class OrderConfirmComponent {
+export class OrderConfirmComponent{
 
+  
 }
