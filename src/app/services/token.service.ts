@@ -9,8 +9,13 @@ export class TokenService {
 
   constructor() { }
 
-  getToken():string | null{
-    return localStorage.getItem(this.TOKEN_KEY);
+  getToken(): string | null {
+    // Kiểm tra xem localStorage có sẵn không
+    debugger
+    if (typeof window !== 'undefined' && window.localStorage) {
+      return localStorage.getItem(this.TOKEN_KEY);
+    }
+    return null; // Trả về null nếu không có localStorage
   }
   setToken(token: string): void{
     localStorage.setItem(this.TOKEN_KEY, token);

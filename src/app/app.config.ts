@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { 
   HttpClientModule, 
   HTTP_INTERCEPTORS 
@@ -15,11 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes), 
     provideClientHydration(), 
-    provideHttpClient(), 
-    {
-    provide : HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true,
-    }
+    provideHttpClient(withInterceptors([TokenInterceptor]))
+    
   ]
 };

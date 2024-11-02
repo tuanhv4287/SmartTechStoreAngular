@@ -25,7 +25,7 @@ export class OrderComponent implements OnInit{
   totalAmount: number = 0;
   couponCode='';
   orderData: OrderDTO = {
-    user_id: 1,
+    user_id: 2,
     fullname: '',
     email: '',
     phone_number: '',
