@@ -10,11 +10,12 @@ import { Category } from '../../models/category';
 import { FormsModule } from '@angular/forms';
 import { error } from 'node:console';
 import { CategoryService } from '../../services/category.service';
+import { Route, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, DetailProductComponent, NgFor, NgIf, NgClass, FormsModule],
+  imports: [HeaderComponent, FooterComponent, DetailProductComponent, NgFor, NgIf, NgClass, FormsModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -31,7 +32,8 @@ export class HomeComponent implements OnInit{
 
   
   constructor( private productService: ProductService,
-                private categoryService: CategoryService
+                private categoryService: CategoryService,
+                private router: Router
   ){
 
   }
@@ -97,4 +99,7 @@ export class HomeComponent implements OnInit{
 
     return new Array(endPage - startPage + 1).fill(0).map((_, index) => startPage + index);
   }
+  onProductClick(productId: number) {
+    this.router.navigate(['/products', productId]);
+  }  
 }

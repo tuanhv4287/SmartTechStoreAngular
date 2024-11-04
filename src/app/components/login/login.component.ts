@@ -2,19 +2,20 @@ import { Component,OnInit,ViewChild } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from "../footer/footer.component";
 import { FormsModule, NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { LoginDTO } from '../../dtos/user/login.dto';
-import { LoginReponse } from '../../responses/user/LoginReponse';
+import { LoginResponse } from '../../responses/user/login.response';
 import { TokenService } from '../../services/token.service';
 import { RoleService } from '../../services/role.service';
 import { Role } from '../../models/role';
 import { NgFor } from '@angular/common';
+import { UserResponse } from '../../responses/user/user.response';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, FormsModule,NgFor],
+  imports: [HeaderComponent, FooterComponent, FormsModule, NgFor, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit{
   roles: Role[]=[];
   rememberMe: boolean = true;
   selectedRole: Role | undefined;
+  userResponse?: UserResponse
 
   constructor(
     private userService: UserService, 
@@ -58,12 +60,23 @@ export class LoginComponent implements OnInit{
     }
     this.userService.login(loginDTO).subscribe({
       
-      next: (response: LoginReponse)=> {
+      next: (response: LoginResponse)=> {
         const {token} = response;
         if(this.rememberMe){
           this.tokenService.setToken(token)
+          this.userService.getUserDetail(token).subscribe({
+            next:(response:any) => { 
+              debugger
+              this.userResponse = {
+                ...response,
+                date_of_birth: new Date(response.date_of_birth),
+              };
+              this.userService.saveUserResponseToLocalStorage(this.userResponse);
+              this.router.navigate(['/']);
+            }
+          })
         }
-        // this.router.navigate(['/login']);
+        
       },
       complete:()=>{
       },

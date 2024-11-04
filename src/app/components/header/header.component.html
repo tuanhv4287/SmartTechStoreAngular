@@ -26,12 +26,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"
-              >Trang chủ</a
-            >
+            <a class="nav-link active" routerLink="/">Trang chủ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Thông báo</a>
+            <a class="nav-link" routerLink="/">Thông báo</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -40,8 +38,9 @@
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
+              routerLink="/orders"
             >
-              <i class="fas fa-shopping-cart icon"></i>
+              <i class="fas fa-shopping-cart icon" routerLink="/orders"></i>
               Giỏ hàng
             </a>
             <ul class="dropdown-menu">
@@ -53,7 +52,9 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-disabled="true">Đăng nhập</a>
+            <a class="nav-link" aria-disabled="true" routerLink="/login"
+              >Đăng nhập</a
+            >
           </li>
         </ul>
       </div>

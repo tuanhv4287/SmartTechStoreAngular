@@ -3,14 +3,14 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [HeaderComponent,FooterComponent,FormsModule,NgIf],
+  imports: [HeaderComponent, FooterComponent, FormsModule, NgIf, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
