@@ -52,9 +52,16 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-disabled="true" routerLink="/login"
-              >Đăng nhập</a
-            >
+            <ng-container *ngIf="userResponse">
+              <a class="nav-link" routerLink="/profile">{{
+                userResponse.fullname
+              }}</a>
+            </ng-container>
+            <ng-container *ngIf="!userResponse">
+              <a class="nav-link" aria-disabled="true" routerLink="/login"
+                >Đăng nhập</a
+              >
+            </ng-container>
           </li>
         </ul>
       </div>

@@ -9,6 +9,7 @@ import { Product } from '../../models/product';
 import { error } from 'console';
 import { NgClass, NgFor } from '@angular/common';
 import { CartService } from '../../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-product',
@@ -25,6 +26,7 @@ export class DetailProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private cartService: CartService,
+    private router: Router
   ){
 
   }
@@ -104,6 +106,7 @@ export class DetailProductComponent implements OnInit {
   
   buyNow(): void {
     // Thực hiện xử lý khi người dùng muốn mua ngay
+    this.router.navigate(['/orders']);
   }    
 
 }

@@ -11,6 +11,8 @@ import { OrderDTO } from '../../dtos/user/order/order.dto';
 import { response } from 'express';
 import { error } from 'console';
 import { OrderService } from '../../services/orderService';
+import { TokenService } from '../../services/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -41,22 +43,29 @@ constructor(
   private cartService: CartService,
   private productService: ProductService,
   private fb: FormBuilder,
-  private orderService: OrderService
+  private orderService: OrderService,
+  private tokenService: TokenService,
+  private router: Router
 ){
   this.orderForm = this.fb.group({
-    fullname: ['hoàng xx', Validators.required], // fullname là FormControl bắt buộc      
-    email: ['hoang234@gmail.com', [Validators.email]], // Sử dụng Validators.email cho kiểm tra định dạng email
-    phone_number: ['11445547', [Validators.required, Validators.minLength(6)]], // phone_number bắt buộc và ít nhất 6 ký tự
-    address: ['nhà x ngõ y', [Validators.required, Validators.minLength(5)]], // address bắt buộc và ít nhất 5 ký tự
-    note: ['dễ vữ'],
-    shipping_method: ['express'],
-    payment_method: ['cod']
+    fullname: ['', Validators.required], // fullname là FormControl bắt buộc      
+    email: ['', [Validators.email]], // Sử dụng Validators.email cho kiểm tra định dạng email
+    phone_number: ['', [Validators.required, Validators.minLength(6)]], // phone_number bắt buộc và ít nhất 6 ký tự
+    address: ['', [Validators.required, Validators.minLength(5)]], // address bắt buộc và ít nhất 5 ký tự
+    note: [''],
+    shipping_method: [''],
+    payment_method: ['']
   });
 }
   ngOnInit(): void {
+    this.cartService.clearCart();
+    this.orderData.user_id = this.tokenService.getUserId();
     const cart = this.cartService.getCart();
     const productIds = Array.from(cart.keys());
     debugger
+    if(productIds.length  === 0){
+      return ;
+    }
     this.productService.getProductsByIds(productIds).subscribe({
       next: (products)=>{
         debugger;
@@ -99,6 +108,8 @@ constructor(
       next: (response)=> {
         debugger;
         console.log('Đặt hàng thành công');
+        this.cartService.clearCart();
+        this.router.navigate(['/orders/', response.id])
       },
       complete: () => {
         this.calculateTotal();
