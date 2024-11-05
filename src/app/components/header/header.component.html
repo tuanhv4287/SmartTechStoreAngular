@@ -34,7 +34,6 @@
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
-              href="#"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
@@ -61,7 +60,6 @@
               >
                 <a
                   class="nav-link"
-                  routerLink="/profile"
                   [ngbPopover]="popoverContent"
                   (click)="togglePopover($event)"
                 >
@@ -69,22 +67,13 @@
                 </a>
                 <ng-template #popoverContent>
                   <div class="popover-list">
-                    <a
-                      href="#"
-                      class="popover-item"
-                      (click)="handleItemClick(0)"
+                    <a class="popover-item" (click)="handleItemClick(0)"
                       >Tài khoản của tôi</a
                     >
-                    <a
-                      href="#"
-                      class="popover-item"
-                      (click)="handleItemClick(1)"
+                    <a class="popover-item" (click)="handleItemClick(1)"
                       >Đơn mua</a
                     >
-                    <a
-                      href="#"
-                      class="popover-item"
-                      (click)="handleItemClick(2)"
+                    <a class="popover-item" (click)="handleItemClick(2)"
                       >Đăng xuất</a
                     >
                   </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink ,ActivatedRoute} from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { UserResponse } from '../../responses/user/user.response';
 import { NgIf } from '@angular/common';
@@ -22,7 +22,10 @@ export class HeaderComponent implements OnInit{
   }
   handleItemClick(index: number): void{
     debugger
-    if(index === 2){
+    if(index === 0){
+      this.router.navigate(['/user-profile'])
+    }
+    else if(index === 2){
       this.userService.removeUserFromLocalStorage();
       this.tokenService.removeToken();
       this.userResponse = this.userService.getUserResponseFromLocalStorage();
@@ -33,7 +36,8 @@ export class HeaderComponent implements OnInit{
   constructor( 
     private userService: UserService,
     private popoverConfig: NgbPopoverConfig,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private router: Router
 
   ){}
   ngOnInit() {

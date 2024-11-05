@@ -24,9 +24,20 @@ export class TokenService {
     console.log(localStorage,'local');
   }
   getUserId(): number {
-    let userObject = this.jwtHelperService.decodeToken(this.getToken() ?? '');
-    return 'userId' in userObject ? parseInt(userObject['userId']) : 0;
-  }
+    const token = this.getToken();
+    if (!token) {
+        return 0;  // Nếu không có token, trả về 0
+    }
+
+    let userObject = this.jwtHelperService.decodeToken(token);
+    if (!userObject) {
+        console.log('Token không hợp lệ hoặc không thể giải mã');
+        return 0;  // Nếu không thể giải mã token, trả về 0
+    }
+
+    // Kiểm tra xem userId có trong userObject hay không
+    return 'sub' in userObject ? parseInt(userObject['sub'], 10) : 0;
+ }
   removeToken():void{
     localStorage.removeItem(this.TOKEN_KEY);
   }

@@ -36,8 +36,8 @@ export class LoginComponent implements OnInit{
     private tokenService: TokenService,
     private roleService: RoleService
   ){
-    this.phoneNumber = '0988336444';
-    this.password = '123456';
+    this.phoneNumber = '0987676762';
+    this.password = '11223344';
   }
   ngOnInit(): void {
     this.roleService.getRoles().subscribe({
