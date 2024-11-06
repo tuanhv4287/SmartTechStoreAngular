@@ -36,8 +36,12 @@ export class LoginComponent implements OnInit{
     private tokenService: TokenService,
     private roleService: RoleService
   ){
-    this.phoneNumber = '0987676762';
-    this.password = '11223344';
+    //login user
+    // this.phoneNumber = '0987676762';
+    // this.password = '11223344';
+    //login admin
+    this.phoneNumber = '0981772415';
+    this.password = '123456';
   }
   ngOnInit(): void {
     this.roleService.getRoles().subscribe({
@@ -72,7 +76,12 @@ export class LoginComponent implements OnInit{
                 date_of_birth: new Date(response.date_of_birth),
               };
               this.userService.saveUserResponseToLocalStorage(this.userResponse);
-              this.router.navigate(['/']);
+              if(this.userResponse?.role.name == 'admin') {
+                this.router.navigate(['/admin']);
+              }
+              else if(this.userResponse?.role.name == 'user'){
+                this.router.navigate(['/']);
+              }
             }
           })
         }
