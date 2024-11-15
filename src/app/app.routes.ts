@@ -9,6 +9,9 @@ import { AuthGuardFn } from './components/guards/auth.guard';
 import { AdminGuardFn } from './components/guards/admin.guard';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { OrderAdminComponent } from './components/admin/order/order-admin.component';
+import { ProductAdminComponent } from './components/admin/product/product-admin.component';
+import { CategoryAdminComponent } from './components/admin/category/category-admin.component';
 
 export const routes: Routes = [
     {path:'',component: HomeComponent },
@@ -19,6 +22,9 @@ export const routes: Routes = [
     {path:'user-profile',component: UserProfileComponent, canActivate:[AuthGuardFn] },
     {path:'orders/:id',component: OrderDetailComponent},
     {path:'admin',component: AdminComponent,canActivate:[AdminGuardFn]},
+    {path:'admin/orders',component: OrderAdminComponent,canActivate:[AdminGuardFn]},
+    {path:'admin/products',component: ProductAdminComponent,canActivate:[AdminGuardFn]},
+    {path:'admin/categories',component: CategoryAdminComponent,canActivate:[AdminGuardFn]},
 ];
 
     

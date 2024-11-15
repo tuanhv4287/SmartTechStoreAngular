@@ -4,27 +4,36 @@
     <button class="btn btn-danger btn-sm" (click)="logout()">Logout</button>
   </header>
   <div class="row">
-    <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+    <nav id="sidebar" class="col-md-2 col-lg-2 d-md-block bg-light sidebar">
       <div class="position-sticky">
-        <ul class="nav-item">
+        <ul class="nav flex-column">
           <li class="nav-item">
-            <a href="#" class="nav-link"
+            <a class="nav-link" (click)="showAdminComponent('orders')"
               ><i class="fab fa-first-order icon"></i
             ></a>
             Orders
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link"
+            <a class="nav-link" (click)="showAdminComponent('categories')"
               ><i class="fab fa-canadian-maple-leaf icon"></i
             ></a>
             categories
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fab fa-codepen icon"></i></a>
+            <a class="nav-link" (click)="showAdminComponent('products')">
+              <i class="fab fa-codepen icon"></i
+            ></a>
             products
           </li>
         </ul>
       </div>
     </nav>
+    <div class="col-md-10 col-lg-10 overflow-auto">
+      <ng-container [ngSwitch]="adminComponent">
+        <app-order-admin *ngSwitchCase="'orders'"></app-order-admin>
+        <app-product-admin *ngSwitchCase="'products'"></app-product-admin>
+        <app-category-admin *ngSwitchCase="'categories'"></app-category-admin>
+      </ng-container>
+    </div>
   </div>
 </div>

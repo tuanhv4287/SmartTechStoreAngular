@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit{
     private tokenService: TokenService,
     private roleService: RoleService
   ){
-    //login user
+    // login user
     // this.phoneNumber = '0987676762';
     // this.password = '11223344';
     //login admin

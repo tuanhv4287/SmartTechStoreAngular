@@ -11,4 +11,6 @@ export interface UserResponse{
     facebook_account_id: number;
     google_account_id: number;
     role: Role;
+    email: String;
+    
 }
