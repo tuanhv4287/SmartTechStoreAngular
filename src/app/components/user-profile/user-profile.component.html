@@ -2,9 +2,9 @@
 <form [formGroup]="userProfileForm">
   <div class="row">
     <div class="col-md-3 mx-auto">
-      <h2 class="product-header">Thông tin người nhận</h2>
+      <h2 class="product-header">Thông tin tài khoản</h2>
       <div class="mb-3">
-        <label for="name" class="form-label">Họ và tên</label>
+        <label for="fullname" class="form-label">Họ và tên</label>
         <input
           type="text"
           class="form-control"
@@ -35,14 +35,14 @@
         />
       </div>
       <div class="mb-3">
-        <label for="retype-password" class="form-label"
+        <label for="retype_password" class="form-label"
           >Nhập lại mật khẩu</label
         >
         <input
           type="text"
           class="form-control"
-          id="retype-password"
-          formControlName="retype-password"
+          id="retype_password"
+          formControlName="retype_password"
         />
       </div>
       <div class="mb-3">
@@ -55,12 +55,12 @@
         />
       </div>
       <div class="mb-3">
-        <label for="date-of-birth" class="form-label">Ngày sinh</label>
+        <label for="date_of_birth" class="form-label">Ngày sinh</label>
         <input
           type="date"
           class="form-control"
-          id="date-of-birth"
-          formControlName="date-of-birth"
+          id="date_of_birth"
+          formControlName="date_of_birth"
         />
       </div>
       <div class="mb-3">

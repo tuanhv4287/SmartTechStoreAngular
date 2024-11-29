@@ -1,7 +1,7 @@
 @import '../../styles/shared-styles.scss';
 .container{
     color: white;
-    height: 100vh;
+    height: 80vh;
 }
 .login-form{
     background-color: $shopapp-background-color ;
@@ -38,7 +38,6 @@
     position: absolute;
     top: 50%;
     right: 10px;
-    transform: translateY(-50%);
     color: $shopapp-title-color;
     cursor: pointer;
 }
@@ -68,6 +67,9 @@
 }
 .access-right:focus{
     border: 1px solid $shopapp-tint-color;
+}
+.access-right option{
+    color: rgb(0, 0, 0);
 }
 .form-control::placeholder{
     color: rgba(243, 165, 42, 0.4);

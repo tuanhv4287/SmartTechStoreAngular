@@ -1,5 +1,4 @@
-import { Component, inject, ViewChild } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
+import { Component, ViewChild } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
@@ -10,42 +9,54 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, FormsModule, NgIf, RouterLink],
+  imports: [ FooterComponent, FormsModule, NgIf, RouterLink],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
   @ViewChild('registerForm') registerForm!: NgForm;
-  phone_number: string;
+  phoneNumber: string;
   password: string;
   retypePassword: string;
   fullName: string;
   address: string;
   isAccepted: boolean;
-  dateOfBirth: Date;
+  dateOfBirth: Date | null;
+  showPassword: Boolean = false;
 
   constructor(private userService: UserService, private router: Router){
-    this.phone_number = '';
+    this.phoneNumber = '';
     this.password = '';
     this.retypePassword = '';
     this.fullName = '';
     this.address = '';
     this.isAccepted = false;
-    this.dateOfBirth = new Date();
-    this.dateOfBirth.setFullYear(this.dateOfBirth.getFullYear() - 18);
+    this.dateOfBirth = null;
+    // this.dateOfBirth.setFullYear(this.dateOfBirth.getFullYear() - 18);
   }
   onPhoneChange(){
-    console.log("phone",this.phone_number);
+    console.log("phone",this.phoneNumber);
     
   }
   register(){
+    console.log(this.registerForm);
+    this.checkPasswordsMatch();
+    if (this.registerForm.invalid) {
+      console.log(this.registerForm.invalid,'this.registerForm.invalid');
+      
+      return;
+    }
+    if (!this.isAccepted) {
+      alert("Bạn phải đồng ý với các điều khoản và điều kiện trước khi đăng ký.");
+      return; // Dừng việc đăng ký nếu chưa đồng ý
+    }
     const registerDTO = {
     "fullname": this.fullName,
-    "phone_number": this.phone_number,
+    "phone_number": this.phoneNumber,
     "address": this.address,
     "password": this.password,
     "retype_password": this.retypePassword,
-    "date_of_birth": this.dateOfBirth,
+    "date_of_birth": this.dateOfBirth || null,
     "facebook_account_id": 0,
     "google_account_id":0,
     "role_id":1
@@ -60,7 +71,7 @@ this.userService.register(registerDTO).subscribe(
   },
   error: (error:any) =>{
     debugger
-    alert(`Cannot register, error: ${error.error}`)
+    alert(`${error.error.message}`);
   }}
   );
 
@@ -92,5 +103,8 @@ this.userService.register(registerDTO).subscribe(
         this.registerForm.form.controls['dateOfBirth'].setErrors(null)
       }
     }
+  }
+  togglePasswordVisibility(){
+    this.showPassword = !this.showPassword;
   }
 }

@@ -12,7 +12,7 @@ export class RegisterDTO{
     @IsNotEmpty()
     retype_password: string;
     @IsDate()
-    date_of_birth: Date;
+    date_of_birth: Date | null;
     facebook_account_id: number;
     google_account_id: number;
     role_id: number;

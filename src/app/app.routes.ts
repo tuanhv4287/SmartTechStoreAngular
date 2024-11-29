@@ -12,6 +12,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { OrderAdminComponent } from './components/admin/order/order-admin.component';
 import { ProductAdminComponent } from './components/admin/product/product-admin.component';
 import { CategoryAdminComponent } from './components/admin/category/category-admin.component';
+import { DetailOrderAdminComponent } from './components/admin/detail-order-admin/detail-order-admin.component';
 
 export const routes: Routes = [
     {path:'',component: HomeComponent },
@@ -22,9 +23,6 @@ export const routes: Routes = [
     {path:'user-profile',component: UserProfileComponent, canActivate:[AuthGuardFn] },
     {path:'orders/:id',component: OrderDetailComponent},
     {path:'admin',component: AdminComponent,canActivate:[AdminGuardFn]},
-    {path:'admin/orders',component: OrderAdminComponent,canActivate:[AdminGuardFn]},
-    {path:'admin/products',component: ProductAdminComponent,canActivate:[AdminGuardFn]},
-    {path:'admin/categories',component: CategoryAdminComponent,canActivate:[AdminGuardFn]},
 ];
 
     

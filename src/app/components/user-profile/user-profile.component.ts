@@ -9,10 +9,8 @@ import { TokenService } from '../../services/token.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
-import { response } from 'express';
 import { UserResponse } from '../../responses/user/user.response';
 import { UpdateUserDTO } from '../../dtos/user/update.user.dto';
-import { error } from 'console';
 
 @Component({
   selector: 'app-user-profile',
@@ -46,18 +44,20 @@ export class UserProfileComponent implements OnInit{
 
   }
   ngOnInit() {
-     this.token = this.tokenService.getToken() ?? '' ;
+    this.token = this.tokenService.getToken() ?? '' ;
     this.userService.getUserDetail(this.token).subscribe({
       next:(response:any)=>{
         debugger
+        const dateFromDb = new Date(response.date_of_birth);
+        const localDate = new Date(dateFromDb.getTime() - (dateFromDb.getTimezoneOffset() * 60000));
         this.userResponse = {
           ...response,
-          date_of_birth: new Date(response.date_of_birth),
+          date_of_birth: !isNaN(localDate.getTime()) ? localDate : null,
         };
         this.userProfileForm.patchValue({
           fullname: response?.fullname ?? '',
           address: response?.address ?? '',
-          date_of_birth: response?.date_of_birth.toISOString().substring(0, 10),
+          date_of_birth: this.userResponse?.date_of_birth ? this.userResponse.date_of_birth.toISOString().substring(0, 10) : null,
         });
         this.userService.saveUserResponseToLocalStorage(this.userResponse);
       },

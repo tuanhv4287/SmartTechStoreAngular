@@ -1,4 +1,22 @@
-# ShopappAngular
+    <img width="500" height="350" src="media/logo.svg" alt="Awesome">
+    <br>
+    <br>
+    <br>
+    <br>
+    	<sub>Check out my Shop app</sub>
+    	<br>
+    	<h2>
+    		<a href="https://sindresorhus.com/menu-bar-spacing">Menu Bar Spacing</a>
+    		<br>
+    		<sup>Customize the gap between menu bar items on macOS</sup>
+    	</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+
+## ShopappAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
 

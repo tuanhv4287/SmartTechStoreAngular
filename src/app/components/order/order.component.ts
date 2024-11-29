@@ -27,7 +27,7 @@ export class OrderComponent implements OnInit{
   totalAmount: number = 0;
   couponCode='';
   orderData: OrderDTO = {
-    user_id: 2,
+    user_id: '2',
     fullname: '',
     email: '',
     phone_number: '',
@@ -58,8 +58,9 @@ constructor(
   });
 }
   ngOnInit(): void {
-    this.cartService.clearCart();
-    this.orderData.user_id = this.tokenService.getUserId();
+    // this.cartService.clearCart();
+    const userIdStr = this.tokenService.getUserId();
+    this.orderData.user_id = userIdStr;
     const cart = this.cartService.getCart();
     const productIds = Array.from(cart.keys());
     debugger
@@ -76,7 +77,6 @@ constructor(
           }
           return {product: product!, quantity: cart.get(productId)!};
         });
-        console.log("haha");
       },
       complete: ()=>{
         debugger;

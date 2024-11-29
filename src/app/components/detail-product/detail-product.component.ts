@@ -9,7 +9,7 @@ import { Product } from '../../models/product';
 import { error } from 'console';
 import { NgClass, NgFor } from '@angular/common';
 import { CartService } from '../../services/cart.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-product',
@@ -26,13 +26,17 @@ export class DetailProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private cartService: CartService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ){
 
   }
   ngOnInit(): void {
     // debugger
-    const idParam = 7;
+    this.route.paramMap.subscribe(params => {
+      this.productId = +params.get('id')!; // Sử dụng 'id' để lấy tham số từ URL, '+' để chuyển đổi sang kiểu số
+    });
+    const idParam = this.productId;
     if(idParam !== null){
       this.productId = +idParam;
     }

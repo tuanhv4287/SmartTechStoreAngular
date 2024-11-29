@@ -13,7 +13,7 @@ export class AuthGuard {
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
     debugger
     const isTokenExpired = this.tokenService.isTokenExpired();
-    const isUserIdValid = this.tokenService.getUserId() > 0;
+    const isUserIdValid = parseInt(this.tokenService.getUserId(), 10) > 0;
     console.log(isUserIdValid,'isUserIdValid');
     if (!isTokenExpired && isUserIdValid) {
       return true;

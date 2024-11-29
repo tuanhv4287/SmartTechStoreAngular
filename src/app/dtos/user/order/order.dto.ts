@@ -1,5 +1,5 @@
 export class OrderDTO {
-    user_id: number;
+    user_id: string;
   
     fullname: string;
   
@@ -23,10 +23,10 @@ export class OrderDTO {
     cart_items: { product_id: number, quantity: number }[]; // Thêm cart_items để lưu thông tin giỏ hàng
   
     constructor(data: any) {
-      this.user_id = data.user_id;
+      this.user_id = data.user_id.toString();
       this.fullname = data.fullname;
       this.email = data.email;
-      this.phone_number = data.phone_number;
+      this.phone_number = data.phone_number.toString();
       this.address = data.address;
       this.note = data.note;
       this.total_money = data.total_money;

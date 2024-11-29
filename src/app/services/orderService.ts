@@ -30,4 +30,12 @@ export class OrderService {
     .set('limit', limit.toString())
     return this.http.get<any>(this.apiGetAllOrders, { params }) ;
   }
+  updateOrder(orderId: number, orderData: OrderDTO): Observable<any> {
+    const url = `${environment.apiBaseUrl}/orders/${orderId}`;
+    return this.http.put(url, orderData);
+  }
+  deleteOrder(orderId: number): Observable<any> {
+    const url = `${environment.apiBaseUrl}/orders/${orderId}`;
+    return this.http.delete(url, { responseType: 'text' });
+  }
 }

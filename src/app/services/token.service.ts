@@ -23,21 +23,21 @@ export class TokenService {
     localStorage.setItem(this.TOKEN_KEY, token);
     console.log(localStorage,'local');
   }
-  getUserId(): number {
+  getUserId(): string {
     const token = this.getToken();
     if (!token) {
-        return 0;  // Nếu không có token, trả về 0
+        return '';  // Nếu không có token, trả về 0
     }
 
     let userObject = this.jwtHelperService.decodeToken(token);
     if (!userObject) {
         console.log('Token không hợp lệ hoặc không thể giải mã');
-        return 0;  // Nếu không thể giải mã token, trả về 0
+        return '0';  // Nếu không thể giải mã token, trả về 0
     }
 
     // Kiểm tra xem userId có trong userObject hay không
-    return 'sub' in userObject ? parseInt(userObject['sub'], 10) : 0;
- }
+    return 'sub' in userObject ? userObject['sub'] : '';
+  }
   removeToken():void{
     localStorage.removeItem(this.TOKEN_KEY);
   }

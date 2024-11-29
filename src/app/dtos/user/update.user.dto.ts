@@ -3,7 +3,7 @@ export class UpdateUserDTO {
     address: string;    
     password: string;    
     retype_password: string;    
-    date_of_birth: Date;    
+    date_of_birth: Date | null;    
     
     constructor(data: any) {
         this.fullname = data.fullname;

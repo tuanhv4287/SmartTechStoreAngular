@@ -29,6 +29,9 @@
     outline: none;
     border-color: transparent;
 }
+.form-group.password-field {
+    position: relative; /* Đảm bảo icon nằm trong ô input */
+  }
 .divider-nospace{
     border-top: 1px solid white;
 }
@@ -91,3 +94,13 @@
     background-color: rgb(243, 165, 42);
     margin: 20px;
 }
+.text-danger {
+    margin-top: 5px; /* Tạo khoảng cách giữa thông báo lỗi và trường nhập */
+  }
+  /* Thay đổi màu icon trong các trình duyệt Webkit (Chrome, Safari, Edge) */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(80%) sepia(50%) saturate(250%) hue-rotate(90deg);
+    /* Bạn có thể thay đổi các giá trị trên để thay đổi màu icon */
+    width: 20px;  /* Điều chỉnh kích thước của icon */
+    height: 20px; /* Điều chỉnh kích thước của icon */
+  }
