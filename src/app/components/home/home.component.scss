@@ -52,6 +52,9 @@
   border-radius: 20px;
   padding: 20px;
   margin-bottom: 20px;
+  img:hover{
+    cursor: pointer;
+  }
 }
 
 .product-image {
@@ -86,6 +89,7 @@
   justify-content: center;
   margin-top: 20px;
 }
+
 
 .space-x {
   margin: 0 5px;

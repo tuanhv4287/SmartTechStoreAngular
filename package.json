@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "production": "npm run build && cross-env BUILD_MODE=production node .build/src/server.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:shopapp-angular": "node dist/shopapp-angular/server/server.mjs"
