@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "babel src -d lib",
     "production": "npm run build && cross-env BUILD_MODE=production node .build/src/server.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
