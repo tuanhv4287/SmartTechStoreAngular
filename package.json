@@ -4,10 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "babel src -d .build/src",
+    "build": "babel src -d lib",
     "production": "npm run build && cross-env BUILD_MODE=production node .build/src/server.js",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "jest",
     "serve:ssr:shopapp-angular": "node dist/shopapp-angular/server/server.mjs"
   },
   "private": true,
