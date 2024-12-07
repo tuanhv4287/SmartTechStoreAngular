@@ -15,21 +15,13 @@
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
-        // "build": {
-        //   "builder": "@angular-devkit/build-angular:application",
-        //   "options": {
-        //     "outputPath": "dist/shopapp-angular",
-        //     "index": "src/index.html",
-        //     "browser": "src/main.ts",
-        //     "polyfills":  ["zone.js", "@angular/localize/init"],
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "angular build --output public",
           "options": {
             "outputPath": "dist/shopapp-angular",
             "index": "src/index.html",
-            "polyfills": [
-              "zone.js"
-            ],
+            "browser": "src/main.ts",
+            "polyfills":  ["zone.js", "@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [

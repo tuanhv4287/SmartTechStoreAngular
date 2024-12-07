@@ -9,7 +9,7 @@ import { Category } from '../models/category';
   providedIn: 'root'
 })
 export class CategoryService {
-    private apiGetCategories = `http://localhost:8088/api/v1/categories`
+    private apiGetCategories = `${environment.apiBaseUrl}/categories`;
 
   constructor(private http: HttpClient) { }
   getCategories(page: number, limit: number): Observable<Category[]>{
