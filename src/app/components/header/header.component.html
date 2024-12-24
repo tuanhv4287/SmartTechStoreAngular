@@ -2,15 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 100 100"
-          width="50"
-          height="50"
-        >
-          <circle cx="50" cy="50" r="45" fill="rgb(240, 101, 197)" />
-          <circle cx="50" cy="50" r="35" fill="rgb(127, 68, 255)" />
-        </svg>
+        <div class="logo">Logo</div>
       </a>
       <button
         class="navbar-toggler"
@@ -23,25 +15,14 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" routerLink="/">Trang chủ</a>
+            <a class="nav-link active" routerLink="/">Danh mục</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/">Thông báo</a>
-          </li>
+
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              routerLink="/orders"
-            >
-              <i class="fas fa-shopping-cart icon" routerLink="/orders"></i>
-              Giỏ hàng
-            </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item">Trang chủ</a></li>
               <li><a class="dropdown-item">Thông báo</a></li>
@@ -50,6 +31,41 @@
               <li><a class="dropdown-item">Đăng nhập</a></li>
             </ul>
           </li>
+          <li>
+            <div class="search-box">
+              <input
+                type="text"
+                class="form-control search-input"
+                placeholder="Tìm sản phẩm"
+                [(ngModel)]="keyword"
+              />
+              <button
+                class="btn btn-primary ml-2"
+                (click)="searchProducts(keyword)"
+              >
+                Tìm kiếm
+              </button>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/"
+              >Gọi mua hàng <br />
+              1800 1986
+            </a>
+          </li>
+
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            routerLink="/orders"
+          >
+            <i class="fas fa-shopping-cart icon" routerLink="/orders"></i>
+            Giỏ hàng
+          </a>
+
           <li class="nav-item">
             <ng-container *ngIf="userResponse">
               <ng-container
@@ -82,7 +98,7 @@
             </ng-container>
             <ng-container *ngIf="!userResponse">
               <a class="nav-link" aria-disabled="true" routerLink="/login"
-                >Đăng nhập</a
+                ><i class="fa-solid fa-user mr-3"></i>Đăng nhập</a
               >
             </ng-container>
           </li>

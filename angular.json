@@ -16,12 +16,14 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "angular build --output public",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/shopapp-angular",
+            "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills":  ["zone.js", "@angular/localize/init"],
+            "polyfills": [
+              "zone.js","@angular/localize/init"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -32,9 +34,9 @@
             ],
             "styles": [
               "src/styles.scss",
+              "src/bootstrap.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.css"
-              
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -99,6 +101,7 @@
             ],
             "styles": [
               "src/styles.scss",
+              "src/bootstrap.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
