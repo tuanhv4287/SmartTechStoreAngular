@@ -2,27 +2,41 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <div class="logo">Logo</div>
+        <img
+          alt="Logo"
+          loading="eager"
+          src="assets/LogoKokibigWhite.png"
+          srcset="
+            assets/LogoKokibigWhite.png 1x,
+            assets/LogoKokibigWhite.png 2x
+          "
+          width="35px"
+          height="auto"
+        />
       </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" routerLink="/">Danh mục</a>
+            <a class="nav-link active" routerLink="/">{{
+              "HOME" | translate
+            }}</a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/">{{
+              "NOTIFICATION" | translate
+            }}</a>
+          </li>
           <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              routerLink="/orders"
+            >
+              <i class="fas fa-shopping-cart icon" routerLink="/orders"></i>
+              {{ "CART" | translate }}
+            </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item">Trang chủ</a></li>
               <li><a class="dropdown-item">Thông báo</a></li>
@@ -31,78 +45,60 @@
               <li><a class="dropdown-item">Đăng nhập</a></li>
             </ul>
           </li>
-          <li>
-            <div class="search-box">
-              <input
-                type="text"
-                class="form-control search-input"
-                placeholder="Tìm sản phẩm"
-                [(ngModel)]="keyword"
-              />
-              <button
-                class="btn btn-primary ml-2"
-                (click)="searchProducts(keyword)"
-              >
-                Tìm kiếm
-              </button>
-            </div>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/"
-              >Gọi mua hàng <br />
-              1800 1986
-            </a>
-          </li>
-
-          <a
-            class="nav-link dropdown-toggle"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            routerLink="/orders"
-          >
-            <i class="fas fa-shopping-cart icon" routerLink="/orders"></i>
-            Giỏ hàng
-          </a>
-
-          <li class="nav-item">
-            <ng-container *ngIf="userResponse">
-              <ng-container
-                ngbPopover="Tài khoản của tôi,Đơn mua,Đăng xuất"
-                popoverTitle="User Actions"
-                triggers="click"
-                [placement]="'bottom'"
-              >
-                <a
-                  class="nav-link"
-                  [ngbPopover]="popoverContent"
-                  (click)="togglePopover($event)"
-                >
-                  {{ userResponse.fullname }}
-                </a>
-                <ng-template #popoverContent>
-                  <div class="popover-list">
-                    <a class="popover-item" (click)="handleItemClick(0)"
-                      >Tài khoản của tôi</a
-                    >
-                    <a class="popover-item" (click)="handleItemClick(1)"
-                      >Đơn mua</a
-                    >
-                    <a class="popover-item" (click)="handleItemClick(2)"
-                      >Đăng xuất</a
-                    >
-                  </div>
-                </ng-template>
-              </ng-container>
-            </ng-container>
-            <ng-container *ngIf="!userResponse">
-              <a class="nav-link" aria-disabled="true" routerLink="/login"
-                ><i class="fa-solid fa-user mr-3"></i>Đăng nhập</a
-              >
-            </ng-container>
-          </li>
         </ul>
+      </div>
+      <div style="padding-right: 10px">
+        <ng-container *ngIf="userResponse">
+          <ng-container
+            ngbPopover="Tài khoản của tôi,Đơn mua,Đăng xuất"
+            popoverTitle="User Actions"
+            triggers="click"
+            [placement]="'bottom'"
+          >
+            <a
+              class="nav-link"
+              [ngbPopover]="popoverContent"
+              (click)="togglePopover($event)"
+            >
+              {{ "HELLO" | translate }} {{ userResponse.fullname }}
+            </a>
+            <ng-template #popoverContent>
+              <div class="popover-list">
+                <a class="popover-item" (click)="handleItemClick(0)">{{
+                  "MY-ACCOUNT" | translate
+                }}</a>
+                <a class="popover-item" (click)="handleItemClick(1)">{{
+                  "ORDER" | translate
+                }}</a>
+                <a class="popover-item" (click)="handleItemClick(2)">{{
+                  "LOG-OUT" | translate
+                }}</a>
+              </div>
+            </ng-template>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngIf="!userResponse">
+          <a class="nav-link" aria-disabled="true" routerLink="/login">{{
+            "LOGIN" | translate
+          }}</a>
+        </ng-container>
+      </div>
+      <div>
+        <a (click)="switchLanguage('vi')" class="flag"
+          ><img
+            src="assets/FlagVN.webp"
+            alt="Vietnam Flag"
+            srcset="assets/FlagVN.webp 1x, assets/FlagVN.webp 2x"
+        /></a>
+        |
+        <a (click)="switchLanguage('en')" class="flag"
+          ><img
+            alt=""
+            loading="eager"
+            src="assets/FlagEU.webp"
+            srcset="assets/FlagEU.webp 1x, assets/FlagEU.webp 2x"
+            alt="AmericanFlag"
+        /></a>
       </div>
     </div>
   </nav>

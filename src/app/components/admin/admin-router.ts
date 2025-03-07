@@ -6,6 +6,9 @@ import { ProductAdminComponent } from "./product/product-admin.component";
 import { CategoryAdminComponent } from "./category/category-admin.component";
 import { DetailOrderAdminComponent } from "./detail-order-admin/detail-order-admin.component";
 import { AdminGuardFn } from "../guards/admin.guard";
+import { UserAdminComponent } from "./user/user-admin.component";
+import { DashboardAdminComponent } from "./dashboard/dashboard-admin.component";
+import { EditUserAdminComponent } from "./edit-user-admin/edit-user-admin.component";
 
 
 
@@ -14,6 +17,10 @@ export const adminRoutes: Routes = [
         path: 'admin',
         component: AdminComponent,canActivate:[AdminGuardFn],
         children: [
+            // {
+            //     path: 'dashboard',
+            //     component: DashboardAdminComponent
+            // }, 
             {
                 path: 'orders',
                 component: OrderAdminComponent
@@ -48,10 +55,14 @@ export const adminRoutes: Routes = [
             //     path: 'categories/insert',
             //     component: InsertCategoryAdminComponent
             // },
-            // {
-            //     path: 'users',
-            //     component: UserAdminComponent
-            // },  
+            {
+                path: 'users',
+                component: UserAdminComponent
+            },
+            {
+                path: 'users/:id',
+                component: EditUserAdminComponent
+            },
         ]
     }
 ];

@@ -1,6 +1,6 @@
 @import '../../styles/shared-styles.scss';
 .container{
-    color: white;
+    color: rgb(8, 8, 8);
     height: 80vh;
 }
 .login-form{
@@ -8,9 +8,10 @@
     border-radius: 10px;
     padding: 20px;
     max-width: 500px;
-    border: 1px solid $shopapp-background-color;
-    align-items: center;
-    justify-content: center;
+    filter: drop-shadow(0.4rem 0.4rem 0.45rem rgba(0, 0, 30, 0.5));
+    // align-items: center;
+    // justify-content: center;
+
 }
 .login-header{
     text-align: center;
@@ -18,15 +19,14 @@
     margin-bottom: 20px;
 }
 .form-control{
-    background-color: transparent;
-    border: none;
-    color: white;
+    // background-color: transparent;
+    color: rgb(0, 0, 0);
 }
 .form-control:focus{
-    color: white;
-    background-color: transparent;
+    color: rgb(0, 0, 0);
+    // background-color: transparent;
     outline: none;
-    border-color: transparent;
+    // border-color: transparent;
 }
 .divider-nospace{
     border-top: 1px solid white;
@@ -62,7 +62,7 @@
 .access-right{
     margin-top: 20px;
     width: 200px;
-    color: white;
+    color: rgb(0, 0, 0);
     border: 1px solid $shopapp-tint-color;
 }
 .access-right:focus{
@@ -72,7 +72,7 @@
     color: rgb(0, 0, 0);
 }
 .form-control::placeholder{
-    color: rgba(243, 165, 42, 0.4);
+    // color: rgba(243, 165, 42, 0.4);
     opacity: 1;
 } 
 .form-control:-ms-input-placeholder{

@@ -6,11 +6,12 @@ import { OrderResponse } from '../../../responses/order/OrderResponse';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OrderDTO } from '../../../dtos/user/order/order.dto';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-detail-order-admin',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslateModule],
   templateUrl: './detail-order-admin.component.html',
   styleUrl: './detail-order-admin.component.scss'
 })
@@ -45,11 +46,9 @@ export class DetailOrderAdminComponent implements OnInit{
   }
   
   getOrderDetails(): void {
-    debugger
     this.orderId = Number(this.route.snapshot.paramMap.get('id'));
     this.orderService.getOrderById(this.orderId).subscribe({
       next: (response: any) => {        
-        debugger;       
         this.orderResponse.id = response.id;
         this.orderResponse.user_id = response.user_id;
         this.orderResponse.fullname = response.fullname;
@@ -82,36 +81,30 @@ export class DetailOrderAdminComponent implements OnInit{
         }         
         this.orderResponse.shipping_method = response.shipping_method;        
         this.orderResponse.status = response.status;     
-        debugger   
       },
       complete: () => {
-        debugger;        
       },
       error: (error: any) => {
-        debugger;
         console.error('Error fetching detail:', error);
       }
     });
   }    
   
   saveOrder(): void {    
-    debugger    
     this.orderService
       .updateOrder(this.orderId, new OrderDTO(this.orderResponse))
       .subscribe({
       next: (response: any) => {
-        debugger
         // Handle the successful update
         console.log('Order updated successfully:', response);
         // Navigate back to the previous page
         this.router.navigate(['../'], { relativeTo: this.route });
       },
       complete: () => {
-        debugger;        
       },
       error: (error: any) => {
         // Handle the error
-        debugger
+        
         console.error('Error updating order:', error);
       }
     });   

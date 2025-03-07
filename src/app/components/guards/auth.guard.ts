@@ -11,7 +11,7 @@ export class AuthGuard {
         private router: Router
     ){}
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
-    debugger
+    
     const isTokenExpired = this.tokenService.isTokenExpired();
     const isUserIdValid = parseInt(this.tokenService.getUserId(), 10) > 0;
     console.log(isUserIdValid,'isUserIdValid');
@@ -26,6 +26,6 @@ export class AuthGuard {
     }
 }
 export const AuthGuardFn: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean => {
-    debugger
+    
     return inject(AuthGuard).canActivate(next,state);
 }

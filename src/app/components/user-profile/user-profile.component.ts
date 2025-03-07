@@ -35,6 +35,7 @@ export class UserProfileComponent implements OnInit{
     this.userProfileForm = this.fb.group({
       fullname: [''],     
       address: ['',[ Validators.minLength(3)]], 
+      phone_number: [''], 
       password: ['', [ Validators.minLength(3)]], 
       retype_password: ['', [ Validators.minLength(3)]], 
       date_of_birth: [''],
@@ -47,7 +48,7 @@ export class UserProfileComponent implements OnInit{
     this.token = this.tokenService.getToken() ?? '' ;
     this.userService.getUserDetail(this.token).subscribe({
       next:(response:any)=>{
-        debugger
+        
         const dateFromDb = new Date(response.date_of_birth);
         const localDate = new Date(dateFromDb.getTime() - (dateFromDb.getTimezoneOffset() * 60000));
         this.userResponse = {
@@ -57,32 +58,34 @@ export class UserProfileComponent implements OnInit{
         this.userProfileForm.patchValue({
           fullname: response?.fullname ?? '',
           address: response?.address ?? '',
+          phone_number: response?.phone_number ?? '',
           date_of_birth: this.userResponse?.date_of_birth ? this.userResponse.date_of_birth.toISOString().substring(0, 10) : null,
         });
         this.userService.saveUserResponseToLocalStorage(this.userResponse);
       },
       complete:()=>{
-        debugger
+        
       },
       error:(error:any)=>{
-        debugger
+        
         alert(error.error.message)
       }
     })
   }
   save(): void{
-    debugger
+    
     if(this.userProfileForm.valid){
       const updateUserDTO: UpdateUserDTO = {
         fullname: this.userProfileForm.get('fullname')?.value,
         address: this.userProfileForm.get('address')?.value,
+        phone_number: this.userProfileForm.get('phone_number')?.value,
         password: this.userProfileForm.get('password')?.value,
         retype_password: this.userProfileForm.get('retype_password')?.value,
         date_of_birth: this.userProfileForm.get('date_of_birth')?.value,
       }
       this.userService.updateUserDetail(this.token, updateUserDTO ).subscribe({
         next: (response:any)=>{
-          debugger
+          
           this.userService.removeUserFromLocalStorage();
           this.tokenService.removeToken();
           this.router.navigate(['/login'])

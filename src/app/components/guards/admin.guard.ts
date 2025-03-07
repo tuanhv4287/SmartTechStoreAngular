@@ -15,7 +15,7 @@ export class AdminGuard {
         private userService: UserService
     ){}
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
-    debugger
+    
     const isTokenExpired = this.tokenService.isTokenExpired();
     const isUserIdValid = parseInt(this.tokenService.getUserId(), 10) > 0;
     this.userResponse = this.userService.getUserResponseFromLocalStorage()
@@ -32,6 +32,6 @@ export class AdminGuard {
     }
 }
 export const AdminGuardFn: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean => {
-    debugger
+    
     return inject(AdminGuard).canActivate(next,state);
 }

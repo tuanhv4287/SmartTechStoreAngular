@@ -11,11 +11,12 @@ import { RoleService } from '../../services/role.service';
 import { Role } from '../../models/role';
 import { NgFor, NgIf } from '@angular/common';
 import { UserResponse } from '../../responses/user/user.response';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, FormsModule, NgFor, NgIf, RouterLink],
+  imports: [HeaderComponent, FooterComponent, FormsModule, NgFor, NgIf, RouterLink, TranslateModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -62,7 +63,7 @@ export class LoginComponent implements OnInit{
   fillAccount(event: any ){ 
     if(event.target.value === 'user'){
       this.phoneNumber = '0988336554';
-      this.password = '123456aA@';
+      this.password = '123456';
       this.roleAuto = 1
       return;
     }
@@ -95,7 +96,7 @@ export class LoginComponent implements OnInit{
           this.tokenService.setToken(token)
           this.userService.getUserDetail(token).subscribe({
             next:(response:any) => { 
-              debugger
+              
               this.userResponse = {
                 ...response,
                 date_of_birth: new Date(response.date_of_birth),

@@ -1,1 +1,81 @@
-<p>category-admin works!</p>
+<div class="container-scroll">
+  <div class="nav-overlay"></div>
+  <div class="container-body">
+    <div class="cps-container">
+      <div class="block-top-home">
+        <div class="col-md-12 menu-container">
+          <div
+            class="menu-tree"
+            *ngFor="let ProductCategory of ProductCategories"
+          >
+            <div
+              class="label-menu-tree"
+              (click)="searchProducts(ProductCategory)"
+            >
+              <div class="label-item multiple">
+                <div class="right-content name">
+                  <i [ngClass]="'icons-cate ' + ProductCategory.icon"></i>
+
+                  <a href="#" class="multiple-link">
+                    <span>{{ ProductCategory.name }}</span>
+                  </a>
+                </div>
+                <div class="icon-right">
+                  <i class="fa-solid fa-angle-right"></i>
+                </div>
+              </div>
+              <div class="menu-child">
+                <p>Apple</p>
+                <p>Samsung</p>
+                <p>OnePlus</p>
+                <p>Xiaomi</p>
+              </div>
+            </div>
+            <div class="boxlist">
+              <div class="row">
+                <div class="col-md-6">
+                  <span><b>Hãng điện thoại</b></span
+                  ><br />
+                  <a
+                    class="title"
+                    *ngFor="let listCategorie of ProductCategory.listCategories"
+                    href="#"
+                    (click)="searchProducts(listCategorie)"
+                    ><span>{{ listCategorie }} <br /></span
+                  ></a>
+                </div>
+                <div class="col-md-6">
+                  <span><b>Mức giá</b></span> <br />
+                  <a
+                    class="title"
+                    *ngFor="let listCategorie of ProductCategory.phonePrice"
+                    href="#"
+                    (click)="searchPrice(listCategorie)"
+                    ><span>{{ listCategorie }} <br /></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          border-radius: 16px;
+          overflow: hidden;
+          background: radial-gradient(rgb(201, 27, 0), rgb(152, 0, 2)) 0% 0% /
+            cover;
+          margin-bottom: 10px;
+        "
+      >
+        <!---->
+        <!---->
+        <!---->
+      </div>
+
+      <div>
+        <h2>Tất cả sản phẩm</h2>
+      </div>
+    </div>
+  </div>
+</div>

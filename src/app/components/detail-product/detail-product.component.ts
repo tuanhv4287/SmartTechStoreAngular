@@ -32,7 +32,7 @@ export class DetailProductComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    // debugger
+    // 
     this.route.paramMap.subscribe(params => {
       this.productId = +params.get('id')!; // Sử dụng 'id' để lấy tham số từ URL, '+' để chuyển đổi sang kiểu số
     });
@@ -66,7 +66,7 @@ export class DetailProductComponent implements OnInit {
     }
   }
   showImage(index: number): void {
-    // debugger
+    // 
     if (this.product && this.product.product_images && 
         this.product.product_images.length > 0) {
       // Đảm bảo index nằm trong khoảng hợp lệ        
@@ -89,7 +89,7 @@ export class DetailProductComponent implements OnInit {
     this.showImage(this.currentImageIndex - 1);
   }
   addToCart(): void {
-    debugger
+    
     if (this.product) {
       this.cartService.addToCart(this.product.id, this.quantity);
     } else {

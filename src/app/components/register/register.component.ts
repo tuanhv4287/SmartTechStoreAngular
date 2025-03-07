@@ -4,12 +4,14 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { HeaderComponent } from '../header/header.component';
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ FooterComponent, FormsModule, NgIf, RouterLink],
+  imports: [ FooterComponent, FormsModule, NgIf, RouterLink, TranslateModule, HeaderComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
@@ -47,7 +49,7 @@ export class RegisterComponent {
       return;
     }
     if (!this.isAccepted) {
-      alert("Bạn phải đồng ý với các điều khoản và điều kiện trước khi đăng ký.");
+      alert('You must agree to the terms and conditions before registering. \nBạn phải đồng ý với các điều khoản và điều kiện trước khi đăng ký.');
       return; // Dừng việc đăng ký nếu chưa đồng ý
     }
     const registerDTO = {
@@ -63,14 +65,14 @@ export class RegisterComponent {
 }
 this.userService.register(registerDTO).subscribe(
   {next: (response:any)=> {
-    debugger
+    
     this.router.navigate(['/login']);
   },
   complete: () =>{
-    debugger
+    
   },
   error: (error:any) =>{
-    debugger
+    
     alert(`${error.error.message}`);
   }}
   );

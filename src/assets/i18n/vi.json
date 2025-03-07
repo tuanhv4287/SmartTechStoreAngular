@@ -1,0 +1,73 @@
+{
+    "HOME": "Trang Chủ",
+    "ABOUT": "Giới Thiệu",
+    "CONTACT": "Liên Hệ",
+    "ALL-PRODUCTS": "Tất cả sản phẩm",
+    "ALL":"Tất cả",
+    "CART": "Giỏ hàng",
+    "NOTIFICATION": "Thông báo",
+    "ORDERS": "Danh sách Đơn hàng",
+    "PRODUCTS": "Danh sách Sản phẩm",
+    "USERS": "Danh sách Người dùng",
+    "CATEGORIES": "Danh mục Sản phẩm",
+    "CATEGORY": "Danh mục",
+
+    "PRODUCT-MANAGEMENT": "Quản lý sản phẩm",
+
+
+    "LOGIN": "Đăng nhập",
+    "MY-ACCOUNT": "Tài khoản của tôi",
+    "ORDER": "Đơn mua",
+    "LOG-OUT": "Đăng xuất",
+    "HELLO": "Xin chào",
+    "PASSWORD": "Mật khẩu",
+    "REGISTER": "Đăng ký",
+    "SIGN-UP": "Đăng ký",
+
+    "SEARCH-FOR-PRODUCTS": "Tìm sản phẩm",
+    "SEARCH": "Tìm kiếm",
+    "SEARCH-BY-ORDERS": "Tìm kiếm đơn hàng (Tên ,Địa chỉ, Ghi chú)",
+    "SEARCH-BY-USERS": "Tìm kiếm người dùng (Tên, Số điện thoại)",
+    
+    "PRICE": "Giá",
+    "NAME": "Tên",
+    "PHONE": "Số điện thoại",
+    "ADDRESS": "Địa chỉ",
+    "DATE-OF-BIRTH": "Ngày sinh",
+    "NOTE": "Ghi chú",
+    "ORDER-DATE": "Ngày đặt hàng",
+    "STATUS": "Trạng thái",
+    "TOTAL-MONEY": "Tổng tiền",
+    "ACTION": "Thao tác",
+    "ROLE": "quyền hạn",
+    "USER-ID": "ID Người dùng",
+    "ORDER-ID": "ID Đơn hàng",
+    "ID": "Mã",
+    "IMAGE": "Hình ảnh",
+    "DESCRIPTION": "Mô tả",
+    "ADD-PRODUCT": "Thêm sản phẩm",
+
+    "PHONE-NUMBER-IS-REQUIRED": "Số điện thoại là bắt buộc",
+    "PHONE-NUMBER-IS-INVALID": "Số điện thoại không hợp lệ",
+    "NAME-IS-REQUIRED": "Họ tên là bắt buộc",
+    "AT-LEAST-3-CHARACTERS": "ít nhất 3 ký tự",
+    "PASSWORD-IS-REQUIRED": "Mật khẩu là bắt buộc",
+    "PASSWORD-LEAST-3-CHARACTERS": "Mật khẩu phải có ít nhất 3 ký tự",
+    "PASSWORD-NOT-MATCH": "Mật khẩu không khớp",
+    "KEEP-ME-LOGGED-IN": "Ghi nhớ đăng nhập",
+    "FORGOT-PASSWORD": "Quên mật khẩu",
+    "LOGIN-PRIVILEGES": "Quyền đăng nhập",
+    "SELECT-TEST-ACCOUNT": "Chọn tài khoản test",
+    "YOU-HAVE-NOT-REGISTERED": "Bạn chưa đăng ký?",
+    "CREATE-ACCOUNT": "Tạo tài khoản",
+    "RE-ENTER-PASSWORD": "Nhập lại mật khẩu",
+    "DO-YOU-HAVE-AN-ACCOUNT": "Bạn đã có tài khoản?",
+    "CHECKBOX-AGREE": "Tôi đồng ý với các điều khoản và điều kiện",
+    "YOU-NOT-18-AGE": "Bạn chưa đủ 18 tuổi"
+
+
+
+
+  }
+  
+  

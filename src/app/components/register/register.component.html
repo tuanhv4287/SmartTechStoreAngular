@@ -1,11 +1,12 @@
+<app-header></app-header>
 <div class="container">
   <form #registerForm="ngForm" (ngSubmit)="register()">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <div class="register-form mx-auto">
-          <h2 class="register-header">Đăng Ký</h2>
-          <div class="form-group">
-            <label for="phoneNumber">Số điện thoại</label>
+        <div class="register-form mx-auto row">
+          <h2 class="register-header">{{ "REGISTER" | translate }}</h2>
+          <div class="form-group col-md-6">
+            <label for="phoneNumber">{{ "PHONE" | translate }}</label>
             <input
               type="text"
               class="form-control"
@@ -17,22 +18,10 @@
               required
             />
             <div class="divider-nospace"></div>
-            <div
-              *ngIf="registerForm.submitted && !phoneNumber"
-              class="text-danger"
-            >
-              Số điện thoại là bắt buộc
-            </div>
-            <div
-              *ngIf="phoneNumber.length != 10 && registerForm.form.touched"
-              class="text-danger"
-            >
-              Số điện thoại không hợp lệ
-            </div>
+            <div class="mt-3"></div>
           </div>
-          <div class="mt-3"></div>
-          <div class="form-group">
-            <label for="full-name">Họ và tên</label>
+          <div class="form-group col-md-6">
+            <label for="full-name">{{ "NAME" | translate }}</label>
             <input
               type="text"
               class="form-control"
@@ -42,20 +31,15 @@
               required
             />
             <div class="divider-nospace"></div>
-            <div
-              *ngIf="registerForm.submitted && !fullName"
-              class="text-danger"
-            >
-              Họ tên là bắt buộc
-            </div>
+
+            <div class="mt-3"></div>
           </div>
-          <div class="mt-3"></div>
-          <div class="form-group password-field">
-            <label for="password">Mật Khẩu</label>
+          <div class="form-group col-md-6 password-field">
+            <label for="password">{{ "PASSWORD" | translate }}</label>
             <input
               [type]="showPassword ? 'text' : 'password'"
               class="form-control"
-              placeholder="ít nhất 3 ký tự"
+              placeholder="{{ 'AT-LEAST-3-CHARACTERS' | translate }}"
               id="password"
               [(ngModel)]="password"
               name="password"
@@ -71,16 +55,13 @@
               (click)="togglePasswordVisibility()"
             ></i>
             <div class="divider-nospace"></div>
-            <div
-              *ngIf="registerForm.submitted && password.length < 3"
-              class="text-danger"
-            >
-              Mật khẩu phải có ít nhất 3 ký tự
-            </div>
+
+            <div class="mt-3"></div>
           </div>
-          <div class="mt-3"></div>
-          <div class="form-group password-field">
-            <label for="confirm-password">Gõ lại mật Khẩu</label>
+          <div class="form-group col-md-6 password-field">
+            <label for="confirm-password">{{
+              "RE-ENTER-PASSWORD" | translate
+            }}</label>
             <input
               [type]="showPassword ? 'text' : 'password'"
               class="form-control"
@@ -93,21 +74,11 @@
               required
             />
             <div class="divider-nospace"></div>
-            <p
-              class="text-danger"
-              *ngIf="
-                registerForm.controls['retypePassword']?.hasError(
-                  'passwordMisMatch'
-                ) && registerForm.form.touched
-              "
-            >
-              Mật khẩu không khớp
-            </p>
+            <div class="mt-3"></div>
           </div>
 
-          <div class="mt-3"></div>
-          <div class="form-group password-field">
-            <label for="date-of-birth">Ngày tháng năm sinh</label>
+          <div class="form-group col-md-6 password-field">
+            <label for="date-of-birth">{{ "DATE-OF-BIRTH" | translate }}</label>
             <input
               type="date"
               class="form-control"
@@ -117,19 +88,11 @@
               (input)="registerForm.form.markAllAsTouched(); checkAge()"
             />
             <div class="divider-nospace"></div>
-            <p
-              class="text-danger"
-              *ngIf="
-                registerForm.controls['dateOfBirth']?.hasError('invalidAge') &&
-                registerForm.form.touched
-              "
-            >
-              Bạn chưa đủ 18 tuổi
-            </p>
+
+            <div class="mt-3"></div>
           </div>
-          <div class="mt-3"></div>
-          <div class="form-group">
-            <label for="address">Địa chỉ</label>
+          <div class="form-group col-md-6">
+            <label for="address">{{ "ADDRESS" | translate }}</label>
             <input
               type="text"
               class="form-control"
@@ -138,8 +101,9 @@
               name="address"
             />
             <div class="divider-nospace"></div>
+            <div class="mt-3"></div>
           </div>
-          <div class="form-group">
+          <div class="form-group col-md-12">
             <div class="form-check checkbox-text">
               <span style="display: flex">
                 <input
@@ -150,19 +114,72 @@
                   name="isAccepted"
                 />
                 <label class="form-check-label text-start" for="agree">
-                  Tôi đồng ý với các điều khoản và điều kiện
+                  {{ "CHECKBOX-AGREE" | translate }}
                 </label>
               </span>
             </div>
           </div>
-          <button type="submit" class="register-button">Đăng ký</button>
+          <div class="form-group col-md-12" style="font-size: 13px">
+            <div
+              *ngIf="registerForm.submitted && !phoneNumber"
+              class="text-danger"
+            >
+              {{ "PHONE-NUMBER-IS-REQUIRED" | translate }}
+            </div>
+
+            <div
+              *ngIf="phoneNumber.length != 10 && registerForm.form.touched"
+              class="text-danger"
+            >
+              {{ "PHONE-NUMBER-IS-INVALID" | translate }}
+            </div>
+
+            <div
+              *ngIf="registerForm.submitted && !fullName"
+              class="text-danger"
+            >
+              {{ "NAME-IS-REQUIRED" | translate }}
+            </div>
+
+            <div
+              *ngIf="registerForm.submitted && password.length < 3"
+              class="text-danger"
+            >
+              {{ "PASSWORD-LEAST-3-CHARACTERS" | translate }}
+            </div>
+
+            <p
+              class="text-danger"
+              *ngIf="
+                registerForm.controls['retypePassword']?.hasError(
+                  'passwordMisMatch'
+                ) && registerForm.form.touched
+              "
+            >
+              {{ "PASSWORD-NOT-MATCH" | translate }}
+            </p>
+
+            <p
+              class="text-danger"
+              *ngIf="
+                registerForm.controls['dateOfBirth']?.hasError('invalidAge') &&
+                registerForm.form.touched
+              "
+            >
+              {{ "YOU-NOT-18-AGE" | translate }}
+            </p>
+          </div>
+
+          <button type="submit" class="register-button">
+            {{ "SIGN-UP" | translate }}
+          </button>
           <div class="divider"></div>
           <p class="text-center">
-            Bạn đã có tài khoản?
+            {{ "DO-YOU-HAVE-AN-ACCOUNT" | translate }}
             <span>
-              <a href="#" class="register-link" routerLink="/login"
-                >Đăng nhập</a
-              ></span
+              <a href="#" class="register-link" routerLink="/login">{{
+                "LOGIN" | translate
+              }}</a></span
             >
           </p>
         </div>

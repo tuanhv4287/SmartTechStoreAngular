@@ -1,31 +1,28 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink ,ActivatedRoute} from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { UserResponse } from '../../responses/user/user.response';
 import { NgIf } from '@angular/common';
 import { NgbModule, NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
 import { TokenService } from '../../services/token.service';
-import { FormsModule, NgModel } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, NgIf, NgbModule, FormsModule],
+  imports: [RouterLink, NgIf, NgbModule, TranslateModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit{
-  @Output() sendKeywordSearch = new EventEmitter<string>();
   userResponse?:UserResponse | null;
   isPopoverOpen = false;
-  keyword: string = '';
-  
   togglePopover(event: Event): void{
     event.preventDefault();
     this.isPopoverOpen = !this.isPopoverOpen;
   }
   handleItemClick(index: number): void{
-    debugger
+    
     if(index === 0){
       this.router.navigate(['/user-profile'])
     }
@@ -39,15 +36,28 @@ export class HeaderComponent implements OnInit{
   }
   constructor( 
     private userService: UserService,
-    private popoverConfig: NgbPopoverConfig,
     private tokenService: TokenService,
-    private router: Router
-
-  ){}
+    private router: Router,
+    private translate: TranslateService
+  ){
+  }
+  
   ngOnInit() {
     this.userResponse = this.userService.getUserResponseFromLocalStorage();
+    if(this.userResponse?.role.name == 'admin') {
+      this.router.navigate(['/admin']);
+    }
   }
-  searchProducts(keyword: string){
-    this.sendKeywordSearch.emit(keyword);
+  switchLanguage(language: string) {
+    if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+      try {
+        localStorage.setItem('language', language);
+      } catch (error) {
+        console.error('Error accessing localStorage:', error);
+      }
+    } else {
+      console.log('localStorage is not available in this environment.');
+    }
+    this.translate.use(language);
   }
 }

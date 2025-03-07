@@ -1,12 +1,12 @@
 <app-header></app-header>
-<div class="container">
+<div class="container pt-5">
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <div class="login-form mx-auto">
-        <h2 class="login-header">Đăng nhập</h2>
+        <h2 class="login-header">{{ "LOGIN" | translate }}</h2>
         <form #loginForm="ngForm" (ngSubmit)="login()">
           <div class="form-group">
-            <label for="phoneNumber">Số điện thoại</label>
+            <label for="phoneNumber">{{ "PHONE" | translate }}</label>
             <input
               type="text"
               class="form-control"
@@ -21,17 +21,17 @@
               *ngIf="loginForm.submitted && !phoneNumber"
               class="text-danger"
             >
-              Số điện thoại là bắt buộc
+              {{ "PHONE-NUMBER-IS-REQUIRED" | translate }}
             </div>
             <div class="divider-nospace"></div>
           </div>
-          <div class="mt-5"></div>
+          <div class="mt-2"></div>
           <div class="form-group password-field">
-            <label for="password">Mật Khẩu</label>
+            <label for="password">{{ "PASSWORD" | translate }}</label>
             <input
               [type]="showPassword ? 'text' : 'password'"
               class="form-control"
-              placeholder="ít nhất 3 ký tự"
+              placeholder="{{ 'AT-LEAST-3-CHARACTERS' | translate }}"
               id="password"
               [(ngModel)]="password"
               name="password"
@@ -45,16 +45,16 @@
               "
               (click)="togglePasswordVisibility()"
             ></i>
-            <div *ngIf="loginForm.submitted && !password" class="text-danger">
-              Mật khẩu là bắt buộc
-            </div>
-            <div
-              *ngIf="loginForm.submitted && password.length < 3"
-              class="text-danger"
-            >
-              Mật khẩu phải > 3 ký tự
-            </div>
             <div class="divider-nospace"></div>
+          </div>
+          <div *ngIf="loginForm.submitted && !password" class="text-danger">
+            {{ "PASSWORD-IS-REQUIRED" | translate }}
+          </div>
+          <div
+            *ngIf="loginForm.submitted && password.length < 3"
+            class="text-danger"
+          >
+            {{ "PASSWORD-LEAST-3-CHARACTERS" | translate }}
           </div>
           <div class="form-group">
             <div class="form-check checkbox-text">
@@ -67,10 +67,12 @@
                   [(ngModel)]="rememberMe"
                 />
                 <label class="form-check-label text-start" for="remember">
-                  Ghi nhớ đăng nhập
+                  {{ "KEEP-ME-LOGGED-IN" | translate }}
                 </label>
               </span>
-              <a href="#" class="register-link">Quên mật khẩu</a>
+              <a href="#" class="register-link">{{
+                "FORGOT-PASSWORD" | translate
+              }}</a>
             </div>
           </div>
           <div class="form-group">
@@ -80,7 +82,9 @@
                 [(ngModel)]="selectedRole"
                 name="remember"
               >
-                <option selected disabled>Quyền đăng nhập</option>
+                <option selected disabled>
+                  {{ "LOGIN-PRIVILEGES" | translate }}
+                </option>
                 <option *ngFor="let role of roles" [ngValue]="role">
                   {{ role.name }}
                 </option>
@@ -89,20 +93,24 @@
                 class="form-control access-right"
                 (change)="fillAccount($event)"
               >
-                <option selected disabled>Chọn tài khoản test</option>
+                <option selected disabled>
+                  {{ "SELECT-TEST-ACCOUNT" | translate }}
+                </option>
                 <option *ngFor="let role of roles" [ngValue]="role">
                   {{ role.name }}
                 </option>
               </select>
             </div>
           </div>
-          <button type="submit" class="login-button">Đăng nhập</button>
+          <button type="submit" class="login-button">
+            {{ "LOGIN" | translate }}
+          </button>
           <div class="divider"></div>
           <p class="text-center">
-            Bạn chưa đăng ký?
+            {{ "YOU-HAVE-NOT-REGISTERED" | translate }}
             <span>
-              <a class="register-link" routerLink="/register"
-                >Tạo tài khoản</a
+              <a class="register-link" routerLink="/register">
+                {{ "CREATE-ACCOUNT" | translate }}</a
               ></span
             >
           </p>

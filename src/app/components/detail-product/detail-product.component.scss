@@ -1,10 +1,11 @@
 .container{
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .intro-section{
-    color: white;
+    color: rgb(7, 7, 7);
     padding: 20px;
     text-align: center;
+    
 }
 .thumbnail-container{
     display: flex;
@@ -65,7 +66,7 @@
  margin-right: 10px;
 }
 .border-wrapper{
-  border: 1px solid white;
+  border: 1px solid rgb(0, 0, 0);
 }
 .product-quantity{
   display: flex;
@@ -76,14 +77,14 @@
 .product-quantity button{
   background-color: transparent;
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 16px;
   cursor: pointer;
 }
 .product-quantity input{
   background-color: transparent;
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 16px;
   text-align: center;
   width: 40px;
@@ -91,4 +92,7 @@
 }
 .product-quantity input:focus{
   outline: none;
+}
+.carousel-inner {
+
 }

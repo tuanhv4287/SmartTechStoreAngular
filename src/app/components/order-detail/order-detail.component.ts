@@ -57,7 +57,7 @@ export class OrderDetailComponent implements OnInit{
           response.order_date[1] - 1,
           response.order_date[2]
         );
-        debugger
+        
         this.orderResponse.order_details = response.order_details.map((order_detail: OrderDetail) => {
           order_detail.product.thumbnail = `${environment.apiBaseUrl}/products/images/${order_detail.product.thumbnail}`
           return order_detail
@@ -70,7 +70,7 @@ export class OrderDetailComponent implements OnInit{
 
       },
       complete:()=>{
-        debugger
+        
 
       },
       error:(error:any)=>{

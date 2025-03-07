@@ -1,13 +1,55 @@
 <div class="container-fluid">
   <header class="header bg-success text-white d-flex justify-content-between">
-    <h1 class="header-title">Dashboard Header</h1>
+    <div class="logo">
+      <img
+        alt="Logo"
+        loading="eager"
+        src="assets/LogoKokibigWhite.png"
+        srcset="assets/LogoKokibigWhite.png 1x, assets/LogoKokibigWhite.png 2x"
+        width="35px"
+        height="auto"
+      />
+    </div>
+    <div>
+      <a (click)="switchLanguage('vi')" class="flag"
+        ><img
+          src="assets/FlagVN.webp"
+          alt="Vietnam Flag"
+          srcset="assets/FlagVN.webp 1x, assets/FlagVN.webp 2x"
+      /></a>
+      |
+      <a (click)="switchLanguage('en')" class="flag"
+        ><img
+          alt=""
+          loading="eager"
+          src="assets/FlagEU.webp"
+          srcset="assets/FlagEU.webp 1x, assets/FlagEU.webp 2x"
+          alt="AmericanFlag"
+      /></a>
+      <button
+        class="btn btn-danger btn-sm"
+        style="margin-left: 15px"
+        (click)="logout()"
+      >
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
+    </div>
     <!-- Logout Button -->
-    <button class="btn btn-danger btn-sm" (click)="logout()">Logout</button>
   </header>
   <div class="row">
     <nav id="sidebar" class="col-md-2 col-lg-2 d-md-block bg-light sidebar">
       <div class="position-sticky">
         <ul class="nav flex-column">
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link"
+              (click)="showAdminComponent('dashboard')"
+              routerLink="/admin/dashboard"
+              routerLinkActive="active"
+            >
+              <i class="fa-solid fa-gauge-high icon"></i>Dashboard
+            </a>
+          </li> -->
           <li class="nav-item">
             <a
               class="nav-link"
@@ -15,7 +57,7 @@
               routerLink="/admin/orders"
               routerLinkActive="active"
             >
-              <i class="fab fa-first-order icon"></i>Orders
+              <i class="fab fa-first-order icon"></i>{{ "ORDERS" | translate }}
             </a>
           </li>
           <li class="nav-item">
@@ -25,7 +67,8 @@
               routerLink="/admin/categories"
               routerLinkActive="active"
             >
-              <i class="fab fa-canadian-maple-leaf icon"></i>Categories
+              <i class="fab fa-canadian-maple-leaf icon"></i
+              >{{ "CATEGORIES" | translate }}
             </a>
           </li>
           <li class="nav-item">
@@ -35,7 +78,7 @@
               routerLink="/admin/products"
               routerLinkActive="active"
             >
-              <i class="fab fa-codepen icon"></i>Products
+              <i class="fab fa-codepen icon"></i>{{ "PRODUCTS" | translate }}
             </a>
           </li>
           <li class="nav-item">
@@ -45,7 +88,7 @@
               routerLink="/admin/users"
               routerLinkActive="active"
             >
-              <i class="fab fa-codepen icon"></i>Users
+              <i class="fab fa-codepen icon"></i>{{ "USERS" | translate }}
             </a>
           </li>
         </ul>

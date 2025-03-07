@@ -1,32 +1,33 @@
 <div class="container-fluid">
-  <p>order-admin page!</p>
-  <div class="row mb-3">
-    <div class="col-md-8">
+  <div class="row mb-3 mt-3 justify-content-center">
+    <div class="col-md-6">
       <input
         type="text"
         class="form-control search-input"
-        placeholder="Tìm đơn hàng"
+        placeholder="{{ 'SEARCH-BY-USERS' | translate }}"
         [(ngModel)]="keyword"
       />
     </div>
-    <div class="col-md-4">
-      <button class="btn btn-primary" (click)="searchOrders()">Tìm kiếm</button>
+    <div class="col-md-2">
+      <button class="btn btn-primary" (click)="searchOrders(keyword)">
+        {{ "SEARCH" | translate }}
+      </button>
     </div>
   </div>
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>User ID</th>
-        <th>Full Name</th>
+        <th>{{ "ORDER-ID" | translate }}</th>
+        <!-- <th>User ID</th> -->
+        <th>{{ "NAME" | translate }}</th>
         <th>Email</th>
-        <th>Phone Number</th>
-        <th>Address</th>
-        <th>Note</th>
-        <th>Order Date</th>
-        <th>Status</th>
-        <th>Total Money</th>
-        <th>Action</th>
+        <th>{{ "PHONE" | translate }}</th>
+        <th>{{ "ADDRESS" | translate }}</th>
+        <th>{{ "NOTE" | translate }}</th>
+        <th>{{ "ORDER-DATE" | translate }}</th>
+        <th>{{ "STATUS" | translate }}</th>
+        <th>{{ "TOTAL-MONEY" | translate }}</th>
+        <th>{{ "ACTION" | translate }}</th>
       </tr>
     </thead>
     <tbody>
@@ -35,7 +36,7 @@
         <td>
           {{ order.id }}
         </td>
-        <td>{{ order.user_id }}</td>
+        <!-- <td>{{ order.user_id }}</td> -->
         <td>{{ order.fullname }}</td>
         <td>{{ order.email }}</td>
         <td>{{ order.phone_number }}</td>
@@ -47,10 +48,10 @@
         <td>
           <div style="display: flex; gap: 10px">
             <button (click)="viewDetails(order)" class="btn btn-primary">
-              View Details
+              <i class="fa-solid fa-file-pen"></i>
             </button>
             <button class="btn btn-danger" (click)="deleteOrder(order.id)">
-              Delete
+              <i class="fa-solid fa-trash"></i>
             </button>
           </div>
         </td>
@@ -62,12 +63,14 @@
     <nav aria-label="Page navigation">
       <ul class="pagination">
         <li class="page-item" *ngIf="currentPage > 1">
-          <a class="page-link" (click)="onPageChange(1)">First</a>
+          <a class="page-link" (click)="onPageChange(1)"
+            ><i class="fa-solid fa-backward-step"></i
+          ></a>
         </li>
         <li class="page-item" *ngIf="currentPage > 1">
           <a class="page-link" (click)="onPageChange(currentPage - 1)"
-            >Previous</a
-          >
+            ><i class="fa-solid fa-arrow-left"></i
+          ></a>
         </li>
         <ng-container *ngFor="let page of visiblePages">
           <li class="page-item" [ngClass]="{ active: page === currentPage }">
@@ -75,10 +78,14 @@
           </li>
         </ng-container>
         <li class="page-item" *ngIf="currentPage < totalPages">
-          <a class="page-link" (click)="onPageChange(currentPage + 1)">Next</a>
+          <a class="page-link" (click)="onPageChange(currentPage + 1)"
+            ><i class="fa-solid fa-arrow-right"></i
+          ></a>
         </li>
         <li class="page-item" *ngIf="currentPage < totalPages">
-          <a class="page-link" (click)="onPageChange(totalPages)">Last</a>
+          <a class="page-link" (click)="onPageChange(totalPages)"
+            ><i class="fa-solid fa-forward-step"></i
+          ></a>
         </li>
       </ul>
     </nav>

@@ -63,13 +63,13 @@ constructor(
     this.orderData.user_id = userIdStr;
     const cart = this.cartService.getCart();
     const productIds = Array.from(cart.keys());
-    debugger
+    
     if(productIds.length  === 0){
       return ;
     }
     this.productService.getProductsByIds(productIds).subscribe({
       next: (products)=>{
-        debugger;
+        ;
         this.cartItems = productIds.map((productId)=>{
           const product = products.find((p) => p.id === productId);
           if(product){
@@ -79,7 +79,7 @@ constructor(
         });
       },
       complete: ()=>{
-        debugger;
+        ;
         this.calculateTotal();
 
       },
@@ -94,7 +94,7 @@ constructor(
     );
   }
   placeOrder(){
-    debugger
+    
     if(this.orderForm.valid){
       this.orderData = {
         ...this.orderData,
@@ -106,7 +106,7 @@ constructor(
     }));
     this.orderService.placeOrder(this.orderData).subscribe({
       next: (response)=> {
-        debugger;
+        ;
         console.log('Đặt hàng thành công');
         this.cartService.clearCart();
         this.router.navigate(['/orders/', response.id])
@@ -115,7 +115,7 @@ constructor(
         this.calculateTotal();
       },
       error: (error: any) => {
-        debugger;
+        ;
         console.error('Lỗi khi đặt hàng:', error);
       },
     });

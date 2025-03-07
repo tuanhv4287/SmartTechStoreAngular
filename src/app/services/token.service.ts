@@ -13,15 +13,23 @@ export class TokenService {
 
   getToken(): string | null {
     // Kiểm tra xem localStorage có sẵn không
-    debugger
-    if (typeof window !== 'undefined' && window.localStorage) {
+    
+    if (typeof window !== 'undefined' && typeof window.localStorage) {
       return localStorage.getItem(this.TOKEN_KEY);
     }
     return null; // Trả về null nếu không có localStorage
   }
   setToken(token: string): void{
-    localStorage.setItem(this.TOKEN_KEY, token);
-    console.log(localStorage,'local');
+    if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+      try {
+        localStorage.setItem(this.TOKEN_KEY, token);
+        console.log(localStorage, 'local'); // Log để kiểm tra
+      } catch (error) {
+        console.error('Error accessing localStorage:', error);
+      }
+    } else {
+      console.log('localStorage is not available in this environment.');
+    }
   }
   getUserId(): string {
     const token = this.getToken();
@@ -39,7 +47,15 @@ export class TokenService {
     return 'sub' in userObject ? userObject['sub'] : '';
   }
   removeToken():void{
-    localStorage.removeItem(this.TOKEN_KEY);
+    if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+      try {
+        localStorage.removeItem(this.TOKEN_KEY);
+      } catch (error) {
+      }
+    } else {
+      console.log('localStorage is not available in this environment.');
+    }
+    
   }
   isTokenExpired(): boolean{
     if(this.getToken() == null){

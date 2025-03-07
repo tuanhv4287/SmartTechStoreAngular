@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RegisterDTO } from '../dtos/user/register.dto';
@@ -16,6 +16,7 @@ export class UserService {
   private apiRegister = `${environment.apiBaseUrl}/users/register`;
   private apiLogin = `${environment.apiBaseUrl}/users/login`;
   private apiUserDetail = `${environment.apiBaseUrl}/users/details`;
+  private apiGetAllUsers = `${environment.apiBaseUrl}/users/get-users-by-keyword`;
 
   private apiConfig = {
     headers: this.createHeaders(),
@@ -44,8 +45,15 @@ export class UserService {
       })
     }); 
   }
+  getAllUsers(keyword: string, page: number, limit:number): Observable<UserResponse[]> {
+      const params = new HttpParams()
+      .set('keyword', keyword)
+      .set('page', page.toString())
+      .set('limit', limit.toString())
+      return this.http.get<any>(this.apiGetAllUsers, { params }) ;
+    }
   updateUserDetail(token: string, updateUserDTO: UpdateUserDTO){
-    debugger
+    
     let userResponse = this.getUserResponseFromLocalStorage();
     return this.http.put(`${this.apiUserDetail}/${userResponse?.id}`, updateUserDTO,{
       headers: new HttpHeaders({
@@ -55,18 +63,18 @@ export class UserService {
     })
   }
   saveUserResponseToLocalStorage(userResponse?: UserResponse){
-    try {
-      if(userResponse == null || !userResponse){
-        return;
+    if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+      try {
+        if(userResponse == null || !userResponse){
+          return;
+        }
+        const userResponseJSON = JSON.stringify(userResponse);
+        localStorage.setItem('user', userResponseJSON);
+      } catch (error) {
+        console.error('Error accessing localStorage:', error);
       }
-      const userResponseJSON = JSON.stringify(userResponse);
-      console.log(userResponseJSON,'userResponseJSON');
-      
-      localStorage.setItem('user', userResponseJSON);
-      console.log('User response saved to local Storage.')
-      
-    } catch (error) {
-      console.log('Error saved User response to local Storage:', error)
+    } else {
+      console.log('localStorage is not available in this environment.');
     }
   }
   // getUserResponseFromLocalStorage(){
@@ -85,32 +93,38 @@ export class UserService {
   // }
   getUserResponseFromLocalStorage() {
     // Kiểm tra xem ứng dụng có đang chạy trên trình duyệt hay không
-    if (isPlatformBrowser(this.platformId)) {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
       try {
         const userResponseJSON = localStorage.getItem('user');
         if (userResponseJSON == null || userResponseJSON == undefined) {
           return null;
         }
         const userResponse = JSON.parse(userResponseJSON);
-        console.log('User response retrieved from local Storage.');
         return userResponse;
       } catch (error) {
-        console.log('Error retrieving User response from local Storage:', error);
         return null;
       }
     } else {
-      console.log('localStorage is not available on the server.');
+      console.log('localStorage of user.service is not available on the server.');
       return null; // Nếu không phải môi trường trình duyệt, trả về null
     }
   }
 
   removeUserFromLocalStorage(): void{
-    try {
-      localStorage.removeItem('user');
-      console.log('user data removed from local storage.');
-    } catch (error) {
-      console.error('Error removing user data from local storage.')
+    if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+      try {
+        localStorage.removeItem('user');
+        console.log('user data removed from local storage.');
+      } catch (error) {
+        console.error('Error accessing localStorage:', error);
+      }
+    } else {
+      console.log('localStorage is not available in this environment.');
     }
+  }
+  deleteUser(userId: number): Observable<any> {
+    const url = `${environment.apiBaseUrl}/users/${userId}`;
+    return this.http.delete(url, { responseType: 'text' });
   }
   
 }

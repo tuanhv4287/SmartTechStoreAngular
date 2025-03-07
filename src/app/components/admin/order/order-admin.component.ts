@@ -4,17 +4,18 @@ import { OrderResponse } from '../../../responses/order/OrderResponse';
 import { CommonModule, NgClass, NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-order-admin',
   standalone: true,
-  imports: [NgClass,NgIf,NgFor,CommonModule,FormsModule],
+  imports: [NgClass,NgIf,NgFor,CommonModule,FormsModule, TranslateModule],
   templateUrl: './order-admin.component.html',
   styleUrl: './order-admin.component.scss'
 })
 export class OrderAdminComponent implements OnInit{
   orders: OrderResponse[] = [];
-  currentPage: number = 0;
+  currentPage: number = 1;
   itemsPerPage: number = 12;
   pages: number[] = [];
   totalPages: number = 0;
@@ -30,16 +31,16 @@ export class OrderAdminComponent implements OnInit{
   getAllOrder(keyword: string, page: number, limit: number) {
     this.orderService.getAllOrders(keyword, page, limit).subscribe({
       next: (response: any) => {
-        debugger
+        
         this.orders = response.orders;
         this.totalPages = response.totalPages;
         this.visiblePages = this.generateVisiblePageArray(this.currentPage, this.totalPages);
       },
       complete: () =>{
-        debugger
+        
       },
       error: (error: any) =>{
-        debugger
+        
         console.error('Error fetching products:', error);
       }
     })
@@ -63,29 +64,29 @@ export class OrderAdminComponent implements OnInit{
   }
   deleteOrder(id:number) {
     const confirmation = window
-      .confirm('Are you sure you want to delete this order?');
+      .confirm('Are you sure you want to delete this order? \nBạn có chắc chắn muốn xóa đơn hàng này?');
     if (confirmation) {
-      debugger
+      
       // this.orderService.deleteOrder(id).subscribe({
       //   next: (response: ApiResponse) => {
-      //     debugger 
+      //      
       //     location.reload();          
       //   },
       //   complete: () => {
-      //     debugger;          
+      //     ;          
       //   },
       //   error: (error: HttpErrorResponse) => {
-      //     debugger;
+      //     ;
       //     console.error(error?.error?.message ?? '');
       //   }
       // });    
     }
   }
   viewDetails(order:OrderResponse) {
-    debugger
+    
     this.router.navigate(['/admin/orders', order.id]);
   }
-  searchOrders(){
-    
+  searchOrders(keyword: any){
+    this.getAllOrder(keyword, this.currentPage, this.itemsPerPage);
   }
 }

@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import {TokenService} from "../services/token.service"
 
 export const TokenInterceptor:HttpInterceptorFn = (req, next)=> {
-    debugger
+    
     const tokenService = inject(TokenService); // Lấy instance của TokenService
     const token = tokenService.getToken(); // Lấy token
     if(token){

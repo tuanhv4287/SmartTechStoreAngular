@@ -13,9 +13,12 @@ import { OrderAdminComponent } from './components/admin/order/order-admin.compon
 import { ProductAdminComponent } from './components/admin/product/product-admin.component';
 import { CategoryAdminComponent } from './components/admin/category/category-admin.component';
 import { DetailOrderAdminComponent } from './components/admin/detail-order-admin/detail-order-admin.component';
+import { CatalogSearchComponent } from './components/catalogsearch/catalogsearch.component';
 
 export const routes: Routes = [
     {path:'',component: HomeComponent },
+    {path:'catalogsearch',component: CatalogSearchComponent },
+    {path:'home',component: HomeComponent },
     {path:'login',component: LoginComponent },
     {path:'register',component: RegisterComponent },
     {path:'products/:id',component: DetailProductComponent },

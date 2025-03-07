@@ -1,0 +1,75 @@
+{
+    "HOME": "Home",
+    "ABOUT": "About Us",
+    "CONTACT": "Contact",
+    "ALL-PRODUCTS": "All Products",
+    "ALL":"All",
+    "CART": "Cart",
+    "NOTIFICATION": "Notification",
+    "ORDERS": "Orders",
+    "PRODUCTS": "Products",
+    "USERS": "Users",
+    "CATEGORIES": "Categories",
+    "CATEGORY": "Category",
+    
+    "PRODUCT-MANAGEMENT": "Product Management",
+
+
+    "LOGIN": "Login",
+    "MY-ACCOUNT": "My Account",
+    "ORDER": "Order",
+    "LOG-OUT": "Log out",
+    "HELLO": "Hello",
+    "PASSWORD": "Password",
+    "REGISTER": "Register",
+    "SIGN-UP": "Sign Up",
+
+
+    "SEARCH-FOR-PRODUCTS": "Search for products",
+    "SEARCH": "Search",
+    "SEARCH-BY-ORDERS": "Search by Order (Name, Address, Note)",
+    "SEARCH-BY-USERS": "Search by User (Name, Phone Number)",
+
+    "PRICE": "Price",
+    "NAME": "Name",
+    "PHONE": "Phone Number",
+    "ADDRESS": "Address",
+    "DATE-OF-BIRTH": "Date Of Birth",
+    "NOTE": "Note",
+    "ORDER-DATE": "Order Date",
+    "STATUS": "Status",
+    "TOTAL-MONEY": "Total Money",
+    "ACTION": "Action",
+    "ROLE": "Role",
+    "USER-ID": "User ID",
+    "ORDER-ID": "Order ID",
+    "ID": "Id",
+    "IMAGE": "Image",
+    "DESCRIPTION": "Description",
+    "ADD-PRODUCT": "Add Product",
+
+    
+    "PHONE-NUMBER-IS-REQUIRED": "Phone number is required",
+    "PHONE-NUMBER-IS-INVALID": "The phone number is invalid",
+    "NAME-IS-REQUIRED": "Name is required",
+    "AT-LEAST-3-CHARACTERS":"at least 3 characters",
+    "PASSWORD-IS-REQUIRED": "Password is required",
+    "PASSWORD-LEAST-3-CHARACTERS": "The password must be at least 3 characters long",
+    "PASSWORD-NOT-MATCH": "The passwords do not match",
+    "KEEP-ME-LOGGED-IN": "Keep me logged in",
+    "FORGOT-PASSWORD": "Forgot password",
+    "LOGIN-PRIVILEGES": "Login privileges",
+    "SELECT-TEST-ACCOUNT": "Select test account",
+    "YOU-HAVE-NOT-REGISTERED": "You haven't registered?",
+    "CREATE-ACCOUNT": "Create account",
+    "RE-ENTER-PASSWORD": "Re-enter password",
+    "DO-YOU-HAVE-AN-ACCOUNT": "Do you have an account?",
+    "CHECKBOX-AGREE": "I agree to the terms and conditions",
+    "YOU-NOT-18-AGE": "You are not 18 years old yet"
+
+
+
+
+    
+
+  }
