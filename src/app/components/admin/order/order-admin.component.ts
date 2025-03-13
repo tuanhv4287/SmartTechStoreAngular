@@ -5,11 +5,12 @@ import { CommonModule, NgClass, NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { PaginationComponent } from "../../pagination/pagination.component";
 
 @Component({
   selector: 'app-order-admin',
   standalone: true,
-  imports: [NgClass,NgIf,NgFor,CommonModule,FormsModule, TranslateModule],
+  imports: [NgClass, NgIf, NgFor, CommonModule, FormsModule, TranslateModule, PaginationComponent],
   templateUrl: './order-admin.component.html',
   styleUrl: './order-admin.component.scss'
 })
@@ -21,6 +22,8 @@ export class OrderAdminComponent implements OnInit{
   totalPages: number = 0;
   keyword: string = "";
   visiblePages: number[] = [];
+
+  currentPage1: number = 1;
   constructor(
     private orderService: OrderService,
     private router: Router

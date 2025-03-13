@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit{
   }
   fillAccount(event: any ){ 
     if(event.target.value === 'user'){
-      this.phoneNumber = '0988336554';
+      this.phoneNumber = '0389113634';
       this.password = '123456';
       this.roleAuto = 1
       return;

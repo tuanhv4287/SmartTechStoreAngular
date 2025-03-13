@@ -1,36 +1,23 @@
 @import '../../styles/shared-styles.scss';
 .container{
-    color: white;
 }
 .intro-section{
-    color: white;
     padding: 20px;
     text-align: center;
 }
-.product-header  {
-color: $shopapp-tint-color;
-}
-.product-order{
-    color: green;
- }
 .form-control{
     background-color: $shopapp-background-color;
     border: 1px solid rgb(29, 33, 54);
-    color: white;
 }
 .form-control:focus{
-    border-color: white;
     background-color: $shopapp-background-color;
- }
- .form-label{
-    color: white ;
  }
  table{
     width: 100%;
     border-radius: 10px;
     border: none;
     border-collapse: separate;
-    border: 1px solid white;
+    border: 1px solid rgb(0, 0, 0);
     border-spacing: 0;
     background-color: $shopapp-background-color;
  }
@@ -49,12 +36,13 @@ color: $shopapp-tint-color;
     align-items: center;
  }
  .product-name{
-    color: white;
+    color: rgb(0, 0, 0);
     margin-right: 10px;
  }
  .btn-gradient{
-    background: linear-gradient(to right, $shopapp-tint-color, $shopapp-color);
-    color: white;
+    background: #0f49e8;
+    color: rgb(255, 255, 255);
     border-radius: 30px;
     width: 200px;
+    
  }

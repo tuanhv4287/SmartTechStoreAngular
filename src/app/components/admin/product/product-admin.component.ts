@@ -7,11 +7,12 @@ import { CategoryService } from '../../../services/category.service';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { PaginationComponent } from "../../pagination/pagination.component";
 
 @Component({
   selector: 'app-product-admin',
   standalone: true,
-  imports: [NgIf, NgFor, NgClass, FormsModule, TranslateModule],
+  imports: [NgIf, NgFor, NgClass, FormsModule, TranslateModule, PaginationComponent],
   templateUrl: './product-admin.component.html',
   styleUrl: './product-admin.component.scss'
 })

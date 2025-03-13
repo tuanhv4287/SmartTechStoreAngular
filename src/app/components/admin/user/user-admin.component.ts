@@ -7,11 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { log } from 'node:console';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
+import { PaginationComponent } from "../../pagination/pagination.component";
 
 @Component({
   selector: 'app-user-admin',
   standalone: true,
-  imports: [NgClass, NgIf, NgFor, CommonModule, FormsModule, TranslateModule],
+  imports: [NgClass, NgIf, NgFor, CommonModule, FormsModule, TranslateModule, PaginationComponent],
   templateUrl: './user-admin.component.html',
   styleUrl: './user-admin.component.scss'
 })

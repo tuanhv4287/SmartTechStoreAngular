@@ -10,10 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { CategoryService } from '../../services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as readline from 'readline';
+import { PaginationComponent } from "../pagination/pagination.component";
 @Component({
   selector: 'app-catalogsearch',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, NgFor, NgIf, NgClass, FormsModule],
+  imports: [HeaderComponent, FooterComponent, NgFor, NgIf, NgClass, FormsModule, PaginationComponent],
   templateUrl: './catalogsearch.component.html',
   styleUrl: './catalogsearch.component.scss'
 })

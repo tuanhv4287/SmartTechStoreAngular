@@ -44,12 +44,28 @@ constructor(private route: ActivatedRoute,
 ){}
 ngOnInit(): void {
   this.token = this.tokenService.getToken() ?? '' ;
-this.getUserDetails() 
+  this.getUserDetails() 
 this.user = window.history.state.user;  // Truy cập state qua window.history.state
 
-this.fullName = this.user.fullname
-this.phoneNumber = this.user.phone_number
-this.address = this.user.address
+
+this.userService.getUserDetail(this.token).subscribe({
+  next:(response:any) => { 
+    
+    this.userResponse = {
+      ...response,
+      date_of_birth: new Date(response.date_of_birth),
+    };
+    this.fullName = this.userResponse.fullname
+    this.phoneNumber = this.userResponse.phone_number
+    this.address = this.userResponse.address
+    console.log(this.userResponse,'this.userResponse');
+},
+complete:()=>{
+},
+error: (error: any)=> {
+alert(`${error.error.message}`)
+}
+});
 }
 getUserDetails(): void {
   this.userId = Number(this.route.snapshot.paramMap.get('id')); 

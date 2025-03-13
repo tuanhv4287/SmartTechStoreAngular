@@ -11,11 +11,12 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { UserResponse } from '../../responses/user/user.response';
 import { UpdateUserDTO } from '../../dtos/user/update.user.dto';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-profile',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent,CommonModule,FormsModule,ReactiveFormsModule ],
+  imports: [HeaderComponent, FooterComponent,CommonModule,FormsModule,ReactiveFormsModule, TranslateModule ],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss'
 })

@@ -13,11 +13,12 @@ import { error } from 'console';
 import { OrderService } from '../../services/orderService';
 import { TokenService } from '../../services/token.service';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent,CommonModule,FormsModule,ReactiveFormsModule ],
+  imports: [HeaderComponent, FooterComponent,CommonModule,FormsModule,ReactiveFormsModule,TranslateModule ],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss'
 })

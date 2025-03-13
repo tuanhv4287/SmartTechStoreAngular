@@ -1,15 +1,16 @@
 <app-header></app-header>
 <div class="container">
   <div class="intro-section">
-    <h1>đây là trang order</h1>
-    <p>sử dụng bootstrap</p>
+    <h1>{{ "CART" | translate }}</h1>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <h2 class="product-header">thông tin người nhận</h2>
+      <h2 class="product-header">{{ "RECIP-INFOR" | translate }}</h2>
       <form [formGroup]="orderForm">
         <div class="mb-3">
-          <label for="fullname" class="form-label">Họ và tên</label>
+          <label for="fullname" class="form-label">{{
+            "FULLNAME" | translate
+          }}</label>
           <input
             type="text"
             class="form-control"
@@ -27,7 +28,7 @@
             "
             class="invalid-feedback"
           >
-            Họ và tên là trường bắt buộc.
+            {{ "NAME-IS-REQUIRED" | translate }}
           </div>
         </div>
         <div class="mb-3">
@@ -49,19 +50,20 @@
           >
             {{
               orderForm.get("email")!.hasError("email")
-                ? "Email không hợp lệ"
-                : "Email là trường bắt buộc"
+                ? ("INVALID-EMAIL" | translate)
+                : ("EMAIL-IS-REQUIRED" | translate)
             }}
           </div>
         </div>
         <div class="mb-3">
-          <label for="phone" class="form-label">Số điện thoại</label>
+          <label for="phone" class="form-label">{{
+            "PHONE" | translate
+          }}</label>
           <input
             type="text"
             class="form-control"
             id="phone"
             formControlName="phone_number"
-            placeholder="Số điện thoại"
             required
             [class.is-invalid]="
               orderForm.get('phone_number')!.invalid &&
@@ -75,17 +77,18 @@
             "
             class="invalid-feedback"
           >
-            Số điện thoại là trường bắt buộc và ít nhất 6 ký tự.
+            {{ "PHONE-NUMBER-IS-REQUIRED" | translate }}
           </div>
         </div>
         <div class="mb-3">
-          <label for="address" class="form-label">Địa chỉ</label>
+          <label for="address" class="form-label">{{
+            "ADDRESS" | translate
+          }}</label>
           <input
             type="text"
             class="form-control"
             id="address"
             formControlName="address"
-            placeholder="Địa chỉ"
             required
             [class.is-invalid]="
               orderForm.get('address')!.invalid &&
@@ -99,22 +102,25 @@
             "
             class="invalid-feedback"
           >
-            Địa chỉ là trường bắt buộc và ít nhất 5 ký tự.
+            {{ "ADDRESS-IS-REQUIRED" | translate }}
           </div>
         </div>
         <div class="mb-3">
-          <label for="address" class="form-label">Ghi chú</label>
+          <label for="address" class="form-label">{{
+            "NOTE" | translate
+          }}</label>
           <input
             type="text"
             class="form-control"
             id="note"
             formControlName="note"
-            placeholder="Ghi chú"
             required
           />
         </div>
         <div class="mb-3">
-          <label for="shippingMethod">Phương thức vận chuyển</label>
+          <label for="shippingMethod">{{
+            "SHIPPING-METHOD" | translate
+          }}</label>
           <select
             class="form-control"
             id="shippingMethod"
@@ -125,7 +131,7 @@
           </select>
         </div>
         <div class="mb-3">
-          <label for="paymentMethod">Phương thức thanh toán</label>
+          <label for="paymentMethod">{{ "PAYMENT-METHOD" | translate }}</label>
           <select
             class="form-control"
             id="paymentMethod"
@@ -138,14 +144,14 @@
       </form>
     </div>
     <div class="col-md-6">
-      <h2 class="product-order">Sản phẩm đã đặt hàng</h2>
+      <h2>{{ "ORDERED-PRODUCT" | translate }}</h2>
       <table>
         <thead>
           <tr>
-            <th scope="col" class="text-start">Sản phẩm</th>
-            <th scope="col">Số lượng</th>
-            <th scope="col">Đơn giá</th>
-            <th scope="col">Tổng giá</th>
+            <th scope="col" class="text-start">{{ "PRODUCT" | translate }}</th>
+            <th scope="col">{{ "QUANTITY" | translate }}</th>
+            <th scope="col">{{ "UNIT-PRICE" | translate }}</th>
+            <th scope="col">{{ "TOTAL-PRICE" | translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -162,11 +168,9 @@
                 </div>
               </td>
               <td>{{ item.quantity }}</td>
+              <td>$ {{ item.product.price | number : "1.2-2" }}</td>
               <td>
-                {{ item.product.price | number : "1.2-2" }}
-              </td>
-              <td>
-                {{ item.product.price * item.quantity | number : "1.2-2" }}
+                $ {{ item.product.price * item.quantity | number : "1.2-2" }}
               </td>
             </tr>
           </ng-container>
@@ -174,13 +178,18 @@
       </table>
       <div class="text-start mt-3">
         <h4 class="header-text text-end">
-          Tổng giá: {{ totalAmount | number : "1.2-2" }}
+          {{ "TOTAL-PRICE" | translate }}: $
+          {{ totalAmount | number : "1.2-2" }}
         </h4>
       </div>
       <div class="mt-3">
-        <h4 class="product-header">Nhập coupon</h4>
+        <h4 class="product-header">{{ "COUPON-CODE" | translate }}</h4>
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Nhập coupon" />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="{{ 'ENTER-COUPON-CODE' | translate }}"
+          />
           <button class="btn btn-gradient" type="button">Áp dụng</button>
         </div>
       </div>

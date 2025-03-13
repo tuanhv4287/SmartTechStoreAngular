@@ -2,9 +2,13 @@
 <form [formGroup]="userProfileForm">
   <div class="row">
     <div class="col-md-3 mx-auto">
-      <h2 class="product-header">Thông tin tài khoản</h2>
+      <h2 class="product-header text-center pt-3">
+        {{ "ACCOUNT-INFORMATION" | translate }}
+      </h2>
       <div class="mb-3">
-        <label for="fullname" class="form-label">Họ và tên</label>
+        <label for="fullname" class="form-label">{{
+          "FULLNAME" | translate
+        }}</label>
         <input
           type="text"
           class="form-control"
@@ -26,27 +30,31 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="password" class="form-label">Mật khẩu</label>
+        <label for="password" class="form-label">{{
+          "PASSWORD" | translate
+        }}</label>
         <input
-          type="text"
+          type="password"
           class="form-control"
           id="password"
           formControlName="password"
         />
       </div>
       <div class="mb-3">
-        <label for="retype_password" class="form-label"
-          >Nhập lại mật khẩu</label
-        >
+        <label for="retype_password" class="form-label">{{
+          "RE-ENTER-PASSWORD" | translate
+        }}</label>
         <input
-          type="text"
+          type="password"
           class="form-control"
           id="retype_password"
           formControlName="retype_password"
         />
       </div>
       <div class="mb-3">
-        <label for="address" class="form-label">Địa chỉ</label>
+        <label for="address" class="form-label">{{
+          "ADDRESS" | translate
+        }}</label>
         <input
           type="text"
           class="form-control"
@@ -55,7 +63,9 @@
         />
       </div>
       <div class="mb-3">
-        <label for="phone_number" class="form-label">Số điện thoại</label>
+        <label for="phone_number" class="form-label">{{
+          "PHONE" | translate
+        }}</label>
         <input
           type="text"
           class="form-control"
@@ -64,7 +74,9 @@
         />
       </div>
       <div class="mb-3">
-        <label for="date_of_birth" class="form-label">Ngày sinh</label>
+        <label for="date_of_birth" class="form-label">{{
+          "DATE-OF-BIRTH" | translate
+        }}</label>
         <input
           type="date"
           class="form-control"
@@ -72,8 +84,10 @@
           formControlName="date_of_birth"
         />
       </div>
-      <div class="mb-3">
-        <button class="btn btn-primary" (click)="save()">Lưu thay đổi</button>
+      <div class="mb-3 d-flex justify-content-center">
+        <button class="save-btn" (click)="save()">
+          {{ "SAVE-CHANGE" | translate }}
+        </button>
       </div>
     </div>
   </div>

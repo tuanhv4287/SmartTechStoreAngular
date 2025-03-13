@@ -12,11 +12,12 @@ import { error } from 'node:console';
 import { CategoryService } from '../../services/category.service';
 import { Route, Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { PaginationComponent } from "../pagination/pagination.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, DetailProductComponent, NgFor, NgIf, NgClass, FormsModule, RouterLink, NgStyle, TranslateModule],
+  imports: [HeaderComponent, FooterComponent, DetailProductComponent, NgFor, NgIf, NgClass, FormsModule, RouterLink, NgStyle, TranslateModule, PaginationComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

@@ -22,3 +22,8 @@
     padding-right: 0 !important;
     height: 100vh;
   }
+  table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }

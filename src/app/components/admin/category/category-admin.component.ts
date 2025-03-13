@@ -1,118 +1,116 @@
-import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { emitKeypressEvents } from 'readline';
-import * as readline from 'readline';
+import { TranslateModule } from '@ngx-translate/core';
+import { CategoryService } from '../../../services/category.service';
+import { Category } from '../../../models/category';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { PaginationComponent } from "../../pagination/pagination.component";
 @Component({
   selector: 'app-category-admin',
   standalone: true,
-  imports: [NgIf,NgFor,NgStyle,NgClass],
+  imports: [NgIf, NgFor, CommonModule, FormsModule, TranslateModule, PaginationComponent],
   templateUrl: './category-admin.component.html',
   styleUrl: './category-admin.component.scss'
 })
 export class CategoryAdminComponent implements OnInit{
-  constructor(     private router: Router){
+  currentPage: number = 1;
+  itemsPerPage: number = 12;
+  pages: number[] = [];
+  totalPages: number = 0;
+  visiblePages: number[] = [];
+  categories: Category[] = [];
+  category:Category = {name:"",id:0};
+  constructor(     private router: Router,
+    private categoryService: CategoryService
+  ){
 
   }
   ngOnInit(): void {
-    
+    this.getCategories(1,100);
   }
-  showPhoneBrands = false;
-  showlaptopBrands = false;
-  
-  ProductCategories = [
-  {
-    icon: 'fa-solid fa-mobile-screen',
-    name:'Điện thoại',
-    id:3,
-    listCategories: ['Iphone', 'Vivo', 'Redme'],
-    phonePrice: ['Dưới 2 triệu', 'Từ 2 - 4 triệu', 'Từ 4 - 7 triệu', 'Từ 7 - 13 triệu', 'Từ 13 - 20 triệu', 'Trên 20 triệu']
-  },
-  {
-    icon: 'fa-solid fa-laptop',
-    id:4,
-    name:'LapTop',
-    listCategories: ['Dell', 'Asus', 'Aser'],
-    phonePrice: ['Dưới 2 triệu', 'Từ 2 - 4 triệu', 'Từ 4 - 7 triệu', 'Từ 7 - 13 triệu', 'Từ 13 - 20 triệu', 'Trên 20 triệu']
-  },  {
-    icon: 'fa-solid fa-laptop',
-    id:5,
-    name:'Đồng hồ',
-    listCategories: ['Iphone', 'Vivo', 'Redme'],
-    phonePrice: ['Dưới 2 triệu', 'Từ 2 - 4 triệu', 'Từ 4 - 7 triệu', 'Từ 7 - 13 triệu', 'Từ 13 - 20 triệu', 'Trên 20 triệu']
-  },
-  {
-    icon: 'fa-solid fa-laptop',
-    id:6,
-    name:'Máy lạnh',
-    listCategories: ['Iphone', 'Vivo', 'Redme'],
-    phonePrice: ['Dưới 2 triệu', 'Từ 2 - 4 triệu', 'Từ 4 - 7 triệu', 'Từ 7 - 13 triệu', 'Từ 13 - 20 triệu', 'Trên 20 triệu']
-  },
-  {
-    icon: 'fa-solid fa-laptop',
-    id:9,
-    name:'Tủ lạnh',
-    listCategories: ['Iphone', 'Vivo', 'Redme'],
-    phonePrice: ['Dưới 2 triệu', 'Từ 2 - 4 triệu', 'Từ 4 - 7 triệu', 'Từ 7 - 13 triệu', 'Từ 13 - 20 triệu', 'Trên 20 triệu']
-  },
-  {
-    icon: 'fa-solid fa-laptop',
-    id:10,
-    name:'Máy giặt',
-    listCategories: ['Iphone', 'Vivo', 'Redme'],
-    phonePrice: ['Dưới 2 triệu', 'Từ 2 - 4 triệu', 'Từ 4 - 7 triệu', 'Từ 7 - 13 triệu', 'Từ 13 - 20 triệu', 'Trên 20 triệu']
-  },
-  {
-    icon: 'fa-solid fa-laptop',
-    id:11,
-    name:'Phụ kiện',
-    listCategories: ['Iphone', 'Vivo', 'Redme'],
-    phonePrice: ['Dưới 2 triệu', 'Từ 2 - 4 triệu', 'Từ 4 - 7 triệu', 'Từ 7 - 13 triệu', 'Từ 13 - 20 triệu', 'Trên 20 triệu']
-  },
-  {
-    icon: 'fa-solid fa-laptop',
-    id:12,
-    name:'Tivi',
-    listCategories: ['Iphone', 'Vivo', 'Redme'],
-    phonePrice: ['Dưới 2 triệu', 'Từ 2 - 4 triệu', 'Từ 4 - 7 triệu', 'Từ 7 - 13 triệu', 'Từ 13 - 20 triệu', 'Trên 20 triệu']
-  },
-  {
-    icon: 'fa-solid fa-laptop',
-    id:13,
-    name:'Thông tin',
-    listCategories: ['Iphone', 'Vivo', 'Redme'],
-    phonePrice: ['Dưới 2 triệu', 'Từ 2 - 4 triệu', 'Từ 4 - 7 triệu', 'Từ 7 - 13 triệu', 'Từ 13 - 20 triệu', 'Trên 20 triệu']
-  },
-  {
-    icon: 'fa-solid fa-laptop',
-    id:14,
-    name:'Dịch vụ tiện ích',
-    listCategories: ['Iphone', 'Vivo', 'Redme'],
-    phonePrice: ['Dưới 2 triệu', 'Từ 2 - 4 triệu', 'Từ 4 - 7 triệu', 'Từ 7 - 13 triệu', 'Từ 13 - 20 triệu', 'Trên 20 triệu']
-  },];
-  searchProducts(ProductCategory:any){
-    console.log(ProductCategory.name);
-    this.router.navigate(['/catalogsearch'], { queryParams: { selectedCategoryId: ProductCategory.id } });
+  getCategories(page: number, limit: number){
+        this.categoryService.getCategories(page,limit).subscribe({
+          next:(categories: Category[])=>{
+            
+            this.categories = categories;
+          },
+          complete: ()=>{
+          },
+          error: (error: any)=>{
+            console.error('Error fetching categories',error)
+          }
+        })
+      }
+      addCategory(){
+        const addCategoryForm = document.getElementById("addCategoryForm") as HTMLDivElement ; // Đảm bảo kiểu có thể là null 
+        addCategoryForm.style.display = "block";     
+      }
+      editCategory(){
+        const editCategoryForm = document.getElementById("editCategoryForm") as HTMLDivElement ; // Đảm bảo kiểu có thể là null 
+        editCategoryForm.style.display = "block";     
+      }
+      closeForm(){
+        const productForm = document.getElementById("addCategoryForm") as HTMLDivElement ; // Đảm bảo kiểu có thể là null 
+        productForm.style.display = "none";
+      }
+      deleteCategory(id:number) {
+          const confirmation = window
+            .confirm('Are you sure you want to delete this category? \nBạn có chắc chắn muốn xóa danh mục này?');
+          if (confirmation) {
+            
+            this.categoryService.deleteCategory(id).subscribe({
+              next: (response: HttpResponse<any>) => {
+                ;
+                location.reload();
+              },
+              complete: () => {
+                ;
+              },
+              error: (error: HttpErrorResponse) => {
+                ;
+                console.error(error?.error?.message ?? '');
+              }
+            });    
+          }
+        }
+        generateVisiblePageArray(currentPage: number, totalPages: number): number[] {
+          const maxVisiblePages = 5;
+          const halfVisiblePages = Math.floor(maxVisiblePages / 2);
+      
+          let startPage = Math.max(currentPage - halfVisiblePages, 1);
+          let endPage = Math.min(startPage + maxVisiblePages - 1, totalPages);
+      
+          if (endPage - startPage + 1 < maxVisiblePages) {
+            startPage = Math.max(endPage - maxVisiblePages + 1, 1);
+          }
+      
+          return new Array(endPage - startPage + 1).fill(0).map((_, index) => startPage + index);
+        }
+        onPageChange(page: number) {
+          this.currentPage = page;
+          this.getCategories(this.currentPage, this.itemsPerPage);
+        }
+        submitForm(){
+          console.log('Form Data:', this.category);
+          this.categoryService.createCategory(this.category).subscribe({
+            next: (response: HttpResponse<any>) => {
+              ;
+              location.reload();
+              
+            },
+            complete: () => {
+              location.reload();
+              ;
+            },
+            error: (error: HttpErrorResponse) => {
+              ;
+              console.error(error?.error?.message ?? '');
+            }
+          });    
+        this.ngOnInit()
+        this.closeForm();
 
-  }
-  searchPrice(phonePrice?:any){
-    console.log(phonePrice,'phonePrice');
-    // this.router.navigate(['/catalogsearch'], { queryParams: { selectedCategoryId: ProductCategory.id } });
-
-  }
-  // Hàm hiển thị các hãng điện thoại
-  showBrands(category: string): void {
-    // if (category === 'phone') {
-    //   this.showPhoneBrands = true;
-    // }
-    // else if(category === 'laptop'){
-    //   this.showlaptopBrands = true;
-    // }
-    this.showPhoneBrands = true;
-  }
-
-  // Hàm ẩn danh sách hãng điện thoại
-  hideBrands(): void {
-    this.showPhoneBrands = false;
-  }
+        }
 }

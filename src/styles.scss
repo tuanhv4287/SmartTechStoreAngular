@@ -1,1 +1,131 @@
 /* You can add global styles to this file, and also import other style files */
+$search-color: #0f49e8;
+$adminSearch-color: #7e8184;
+$edit-color: #f39c12;
+$delete-color: #e74c3c;
+$save-color: #0f49e8 ;
+$add-color: #2ecc71 ;
+
+.text-center {
+    text-align: center;
+}
+.form-popup {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 60px;
+
+}
+.form-container {
+  background-color: white;
+  margin: 0% auto;
+  padding: 30px;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+  max-height: 80vh;
+}
+
+.form-container h3 {
+  text-align: center;
+  color: #333;
+}
+
+.form-container input, .form-container select, .form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.form-container button {
+  background-color: #5cb85c;
+  color: white;
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  width: 100px;
+  border-radius: 30px;
+  margin: 0px 10px;
+  align-self: flex-end; /* Đưa nút sang bên phải */
+}
+.form-container div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.form-container button.cancel-btn {
+  background-color: #f44336;
+}
+
+.form-container button:hover {
+  opacity: 0.8;
+}
+
+
+// Cấu trúc chung cho các nút
+.btn {
+  min-width: 35px;
+  padding: 8px;
+  color: white;
+  border-radius: 10px;
+  font-size: 14px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.adminSearch-btn {
+  @extend .btn;
+  background-color: $adminSearch-color;
+  &:hover {
+    background-color: darken($adminSearch-color, 10%); // Làm tối màu nền khi hover
+  }
+}
+.search-btn {
+  @extend .btn;
+  background-color: $search-color;
+  &:hover {
+    background-color: darken($search-color, 10%); // Làm tối màu nền khi hover
+  }
+}
+
+
+.edit-btn {
+  @extend .btn;
+  background-color: $edit-color;
+  &:hover {
+    background-color: darken($edit-color, 10%); // Làm tối màu nền khi hover
+  }
+}
+
+.delete-btn {
+  @extend .btn;
+  background-color: $delete-color;
+  &:hover {
+    background-color: darken($delete-color, 10%); // Làm tối màu nền khi hover
+  }
+}
+.add-btn {
+  @extend .btn;
+  background-color: $add-color;
+  &:hover {
+    background-color: darken($add-color, 10%); // Làm tối màu nền khi hover
+  }
+}
+.save-btn {
+  @extend .btn;
+  background-color: $save-color;
+  &:hover {
+    background-color: darken($save-color, 10%); // Làm tối màu nền khi hover
+  }
+}
