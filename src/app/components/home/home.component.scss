@@ -225,11 +225,14 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 1px black solid;
-  color: #e81212;
-  padding: 10px 20px;
-  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 20px;
+  animation: slideUp 0.5s ease-out;
+  transition: opacity 0.3s ease-in-out;
   cursor: pointer;
 
   &:hover {
@@ -240,6 +243,10 @@
     width: 100%;
     height: 100%;
   }
+}
+
+.scroll-to-top-button.show {
+  display: block; /* Hiển thị nút khi showButton = true */
 }
 .pagination {
   text-align: center;
@@ -276,3 +283,31 @@
   cursor: not-allowed;
 }
   
+@keyframes slideUp {
+  from {
+    bottom: -50px; 
+  }
+  to {
+    bottom: 20px; 
+  }
+}
+@media (max-width: 481px) {
+  .container {
+      padding: 0;
+  }
+  .intro-section{
+    padding: 10px 0px ;
+  }
+  .sliding-banner{
+    padding: 0;
+  }
+  .search-input{
+    width: 150px;
+  }
+  .product-category{
+    width: 110px;
+  }
+  .product{
+    padding: 0px 20px;
+  }
+}

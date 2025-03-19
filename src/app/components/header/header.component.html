@@ -21,29 +21,33 @@
               "HOME" | translate
             }}</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/">{{
-              "NOTIFICATION" | translate
-            }}</a>
-          </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
               role="button"
-              data-bs-toggle="dropdown"
+              data-toggle="dropdown"
+              aria-haspopup="true"
               aria-expanded="false"
-              routerLink="/orders"
+              >{{ "LIST" | translate }}</a
             >
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="/about">{{
+                "ABOUT" | translate
+              }}</a>
+              <a class="dropdown-item" href="#">{{ "SERVICE" | translate }}</a>
+              <a class="dropdown-item" routerLink="/contact">{{
+                "CONTACT" | translate
+              }}</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" aria-expanded="false" routerLink="/orders">
               <i class="fas fa-shopping-cart icon" routerLink="/orders"></i>
               {{ "CART" | translate }}
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item">Trang chủ</a></li>
-              <li><a class="dropdown-item">Thông báo</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item">Giỏ hàng</a></li>
-              <li><a class="dropdown-item">Đăng nhập</a></li>
-            </ul>
           </li>
         </ul>
       </div>

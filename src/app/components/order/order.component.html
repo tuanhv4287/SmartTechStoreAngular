@@ -189,13 +189,20 @@
             type="text"
             class="form-control"
             placeholder="{{ 'ENTER-COUPON-CODE' | translate }}"
+            [(ngModel)]="couponCode"
           />
-          <button class="btn btn-gradient" type="button">Áp dụng</button>
+          <button
+            [disabled]="couponCode.length < 3"
+            class="btn btn-gradient"
+            type="button"
+          >
+            {{ "APPLY" | translate }}
+          </button>
         </div>
       </div>
       <div class="text-start mt-3">
         <button (click)="placeOrder()" class="btn btn-gradient" type="button">
-          Đặt hàng
+          {{ "PLACE-ORDER" | translate }}
         </button>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from "../footer/footer.component";
 import { DetailProductComponent } from "../detail-product/detail-product.component";
@@ -31,8 +31,11 @@ export class HomeComponent implements OnInit{
   totalPages:number = 0;
   visiblePages: number[] = [];
   keyword:string = "";
-
-
+  showButton: boolean = false;
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.showButton = window.scrollY > 100;  // Đảm bảo `showButton` có kiểu 'boolean'
+  }
   constructor( private productService: ProductService,
                 private categoryService: CategoryService,
                 private router: Router
@@ -98,6 +101,7 @@ export class HomeComponent implements OnInit{
       }
     })
   }
+
   onPageChange(page: number) {
     this.currentPage = page;
     this.getProducts(this.keyword, this.selectedCategoryId, this.currentPage, this.itemsPerPage);

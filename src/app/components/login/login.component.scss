@@ -1,7 +1,6 @@
 @import '../../styles/shared-styles.scss';
 .container{
     color: rgb(8, 8, 8);
-    height: 80vh;
 }
 .login-form{
     background-color: $shopapp-background-color ;
@@ -9,8 +8,6 @@
     padding: 20px;
     max-width: 500px;
     filter: drop-shadow(0.4rem 0.4rem 0.45rem rgba(0, 0, 30, 0.5));
-    // align-items: center;
-    // justify-content: center;
 
 }
 .login-header{
@@ -19,14 +16,11 @@
     margin-bottom: 20px;
 }
 .form-control{
-    // background-color: transparent;
     color: rgb(0, 0, 0);
 }
 .form-control:focus{
     color: rgb(0, 0, 0);
-    // background-color: transparent;
     outline: none;
-    // border-color: transparent;
 }
 .divider-nospace{
     border-top: 1px solid white;
@@ -72,7 +66,6 @@
     color: rgb(0, 0, 0);
 }
 .form-control::placeholder{
-    // color: rgba(243, 165, 42, 0.4);
     opacity: 1;
 } 
 .form-control:-ms-input-placeholder{

@@ -6,6 +6,9 @@ $delete-color: #e74c3c;
 $save-color: #0f49e8 ;
 $add-color: #2ecc71 ;
 
+html, body {
+  overflow-x: hidden;
+}
 .text-center {
     text-align: center;
 }

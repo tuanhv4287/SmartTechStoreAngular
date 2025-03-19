@@ -1,6 +1,7 @@
 {
     "HOME": "Home",
     "ABOUT": "About Us",
+    "SERVICE": "Service",
     "CONTACT": "Contact",
     "ALL-PRODUCTS": "All Products",
     "ALL":"All",
@@ -11,6 +12,7 @@
     "USERS": "Users",
     "CATEGORIES": "Categories",
     "CATEGORY": "Category",
+    "LIST": "Categories",
     "ACCOUNT-INFORMATION": "Account Information",
     "RECIP-INFOR": "Recipient Information",
     "ORDERED-PRODUCT": "Ordered Product",
@@ -45,6 +47,8 @@
     "SEARCH-BY-USERS": "Search by User (Name, Phone Number)",
     "SAVE": "Save",
     "SAVE-CHANGE": "Save Changes",
+    "APPLY": "Apply",
+    "PLACE-ORDER": "Place order",
 
     "PRICE": "Price",
     "NAME": "Name",

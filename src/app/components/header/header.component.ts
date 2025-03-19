@@ -26,6 +26,9 @@ export class HeaderComponent implements OnInit{
     if(index === 0){
       this.router.navigate(['/user-profile'])
     }
+    else if(index === 1){
+      this.router.navigate(['/orders/',this.userResponse?.id])
+    }
     else if(index === 2){
       this.userService.removeUserFromLocalStorage();
       this.tokenService.removeToken();

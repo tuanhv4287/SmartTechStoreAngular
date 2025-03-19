@@ -1,6 +1,7 @@
 {
     "HOME": "Trang Chủ",
     "ABOUT": "Giới Thiệu",
+    "SERVICE": "Dịch Vụ",
     "CONTACT": "Liên Hệ",
     "ALL-PRODUCTS": "Tất cả sản phẩm",
     "ALL":"Tất cả",
@@ -11,6 +12,7 @@
     "USERS": "Danh sách Người dùng",
     "CATEGORIES": "Danh mục Sản phẩm",
     "CATEGORY": "Danh mục",
+    "LIST": "Danh mục",
     "ACCOUNT-INFORMATION": "Thông tin tài khoản",
     "RECIP-INFOR": "Thông tin người nhận",
     "ORDERED-PRODUCT": "Sản phẩm đã đặt hàng",
@@ -42,6 +44,8 @@
     "SEARCH-BY-USERS": "Tìm kiếm người dùng (Tên, Số điện thoại)",
     "SAVE": "Lưu",
     "SAVE-CHANGE": "Lưu thay đổi",
+    "APPLY": "Áp dụng",
+    "PLACE-ORDER": "Đặt hàng",
     
     "PRICE": "Giá",
     "NAME": "Tên",

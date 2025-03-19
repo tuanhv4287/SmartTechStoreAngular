@@ -14,11 +14,15 @@ import { ProductAdminComponent } from './components/admin/product/product-admin.
 import { CategoryAdminComponent } from './components/admin/category/category-admin.component';
 import { DetailOrderAdminComponent } from './components/admin/detail-order-admin/detail-order-admin.component';
 import { CatalogSearchComponent } from './components/catalogsearch/catalogsearch.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 export const routes: Routes = [
     {path:'',component: HomeComponent },
     {path:'catalogsearch',component: CatalogSearchComponent },
     {path:'home',component: HomeComponent },
+    {path:'about',component: AboutComponent },
+    {path:'contact',component: ContactComponent },
     {path:'login',component: LoginComponent },
     {path:'register',component: RegisterComponent },
     {path:'products/:id',component: DetailProductComponent },
