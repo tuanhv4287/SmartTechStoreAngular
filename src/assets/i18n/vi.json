@@ -16,6 +16,7 @@
   "ACCOUNT-INFORMATION": "Thông tin tài khoản",
   "RECIP-INFOR": "Thông tin người nhận",
   "ORDERED-PRODUCT": "Sản phẩm đã đặt hàng",
+  "CONTACT-INFOR": "Thông Tin Liên Hệ",
 
   "PRODUCT-MANAGEMENT": "Quản lý sản phẩm",
   "USER-MANAGEMENT": "Quản lý tài khoản",
@@ -70,6 +71,16 @@
   "ADD-PRODUCT": "Thêm sản phẩm",
   "ADD-CATEGORY": "Thêm Danh mục",
   "EDIT-PRO-INF": "Sửa Thông Tin Sản Phẩm",
+  "ABOUT-US": "Về Chúng Tôi",
+  "DES-ABOUT-US": "Chúng tôi là một đội ngũ đam mê và sáng tạo, luôn nỗ lực để cung cấp những sản phẩm và dịch vụ chất lượng.",
+  "DES-TWO-ABOUT-US": "Chúng Tôi Là Ai?",
+  "DES-THREE-ABOUT-US": "Chúng tôi là một công ty tiên phong trong lĩnh vực công nghệ với sứ mệnh cung cấp các giải pháp sáng tạo và hiệu quả cho khách hàng. Được thành lập vào năm 2010, chúng tôi luôn hướng tới việc phát triển bền vững và không ngừng cải tiến để đáp ứng nhu cầu ngày càng cao của thị trường.",
+  "DES-FOUR-ABOUT-US": "Chúng tôi tự hào với đội ngũ nhân viên chuyên nghiệp, giàu kinh nghiệm và luôn tìm kiếm cơ hội để học hỏi và phát triển.",
+  "DES-FIVE-ABOUT-US": "Đội Ngũ Của Chúng Tôi",
+  "DES-SIX-ABOUT-US": "Đội ngũ của chúng tôi là một tập thể năng động, sáng tạo và luôn hướng đến sự xuất sắc trong công việc. Mỗi thành viên đều đóng vai trò quan trọng trong sự phát triển của công ty.",
+  "CONTACT-US": "Liên Hệ Với Chúng Tôi",
+  "DES-CONTACT-US": "Chúng tôi luôn sẵn sàng hỗ trợ bạn!",
+  "DES-TWO-CONTACT-US": "© 2025 Công Ty XYZ. Tất cả các quyền được bảo lưu.",
 
   "PHONE-NUMBER-IS-REQUIRED": "Số điện thoại là bắt buộc",
   "PHONE-NUMBER-IS-INVALID": "Số điện thoại không hợp lệ",
@@ -102,5 +113,10 @@
   "PAYMENT-METHODS": "Phương thức thanh toán",
   "ORD-DELI-METHODS": "Phương thức đặt hàng giao hàng",
   "WARR-POLICY": "Chính sách bảo hành",
-  "REPAIR-SERVICES": "Dịch vụ sửa chữa"
+  "REPAIR-SERVICES": "Dịch vụ sửa chữa",
+  "CEO": "Giám Đốc Điều Hành",
+  "CMO": "Giám Đốc Marketing",
+  "CTO": "Giám Đốc Kỹ Thuật",
+  "MESSAGE": "Lời nhắn",
+  "SEND": "Gửi"
 }

@@ -16,6 +16,7 @@
   "ACCOUNT-INFORMATION": "Account Information",
   "RECIP-INFOR": "Recipient Information",
   "ORDERED-PRODUCT": "Ordered Product",
+  "CONTACT-INFOR": "Contact Information",
 
   "PRODUCT-MANAGEMENT": "Product Management",
   "USER-MANAGEMENT": "User Management",
@@ -70,6 +71,16 @@
   "ADD-PRODUCT": "Add Product",
   "ADD-CATEGORY": "Add Category",
   "EDIT-PRO-INF": "Edit Product Information",
+  "ABOUT-US": "About Us",
+  "DES-ABOUT-US": "We are a passionate and creative team, always striving to deliver high-quality products and services.",
+  "DES-TWO-ABOUT-US": "Who We Are?",
+  "DES-THREE-ABOUT-US": "We are a pioneering company in the technology sector with a mission to provide innovative and effective solutions for our customers. Founded in 2010, we are committed to sustainable development and continuous improvement to meet the ever-growing demands of the market.",
+  "DES-FOUR-ABOUT-US": "We take pride in our professional, experienced team, who are always seeking opportunities to learn and grow.",
+  "DES-FIVE-ABOUT-US": "Our Team",
+  "DES-SIX-ABOUT-US": "Our team is a dynamic, creative collective, always striving for excellence in our work. Each member plays a crucial role in the development of the company.",
+  "CONTACT-US": "Contact Us",
+  "DES-CONTACT-US": "We are always ready to assist you!",
+  "DES-TWO-CONTACT-US": "© 2025 XYZ Company. All rights reserved.",
 
   "PHONE-NUMBER-IS-REQUIRED": "Phone number is required",
   "PHONE-NUMBER-IS-INVALID": "The phone number is invalid",
@@ -102,5 +113,10 @@
   "PAYMENT-METHODS": "Payment Methods",
   "ORD-DELI-METHODS": "Order and Delivery Methods",
   "WARR-POLICY": "Warranty Policy",
-  "REPAIR-SERVICES": "Repair Services"
+  "REPAIR-SERVICES": "Repair Services",
+  "CEO": "Chief Executive Officer",
+  "CMO": "Chief Marketing Officer",
+  "CTO": "Chief Technology Officer",
+  "MESSAGE": "Message",
+  "SEND": "Send"
 }
