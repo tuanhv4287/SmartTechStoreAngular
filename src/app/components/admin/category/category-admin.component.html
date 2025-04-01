@@ -38,34 +38,17 @@
       }
     </tbody>
   </table>
-  <app-pagination
-    [currentPage]="currentPage"
-    [totalPages]="totalPages"
-    [visiblePages]="visiblePages"
-    (pageChanged)="onPageChange($event)"
-  ></app-pagination>
+  <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" [visiblePages]="visiblePages"
+    (pageChanged)="onPageChange($event)"></app-pagination>
 
   <!-- Form thêm sản phẩm -->
   <div class="form-popup" id="addCategoryForm">
-    <form
-      class="form-container"
-      (ngSubmit)="submitForm()"
-      #categoryForm="ngForm"
-    >
+    <form class="form-container" (ngSubmit)="submitForm()" #categoryForm="ngForm">
       <h3>Thêm danh mục</h3>
       <label for="category-name">Tên danh mục:</label>
-      <input
-        type="text"
-        id="category-name"
-        name="category-name"
-        [(ngModel)]="this.category.name"
-        required
-        #categoryName="ngModel"
-      />
-      <div
-        *ngIf="categoryName.invalid && categoryName.touched"
-        class="error-message"
-      >
+      <input type="text" id="category-name" name="category-name" [(ngModel)]="this.category.name" required
+        #categoryName="ngModel" />
+      <div *ngIf="categoryName.invalid && categoryName.touched" class="error-message">
         Tên danh mục là bắt buộc!
       </div>
       <div>

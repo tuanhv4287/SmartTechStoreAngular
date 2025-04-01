@@ -50,11 +50,7 @@
           <tr *ngFor="let item of orderResponse.order_details">
             <td>
               <div class="product-info">
-                <img
-                  [src]="item.product.thumbnail"
-                  alt="product Image"
-                  class="product-image"
-                />
+                <img [src]="item.product.thumbnail" alt="product Image" class="product-image" />
                 <span class="product-name">{{ item.product.name }} </span>
               </div>
             </td>

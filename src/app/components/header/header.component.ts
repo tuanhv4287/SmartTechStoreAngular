@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink ,ActivatedRoute} from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { UserResponse } from '../../responses/user/user.response';
 import { NgIf } from '@angular/common';
-import { NgbModule, NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TokenService } from '../../services/token.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -12,47 +12,45 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   standalone: true,
   imports: [RouterLink, NgIf, NgbModule, TranslateModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit{
-  userResponse?:UserResponse | null;
+export class HeaderComponent implements OnInit {
+  userResponse?: UserResponse | null;
   isPopoverOpen = false;
-  togglePopover(event: Event): void{
+  togglePopover(event: Event): void {
     event.preventDefault();
     this.isPopoverOpen = !this.isPopoverOpen;
   }
-  handleItemClick(index: number): void{
-    
-    if(index === 0){
-      this.router.navigate(['/user-profile'])
-    }
-    else if(index === 1){
-      this.router.navigate(['/orders/',this.userResponse?.id])
-    }
-    else if(index === 2){
+  handleItemClick(index: number): void {
+    if (index === 0) {
+      this.router.navigate(['/user-profile']);
+    } else if (index === 1) {
+      this.router.navigate(['/orders/', this.userResponse?.id]);
+    } else if (index === 2) {
       this.userService.removeUserFromLocalStorage();
       this.tokenService.removeToken();
       this.userResponse = this.userService.getUserResponseFromLocalStorage();
     }
     this.isPopoverOpen = false;
-    
   }
-  constructor( 
+  constructor(
     private userService: UserService,
     private tokenService: TokenService,
     private router: Router,
     private translate: TranslateService
-  ){
-  }
-  
+  ) {}
+
   ngOnInit() {
     this.userResponse = this.userService.getUserResponseFromLocalStorage();
-    if(this.userResponse?.role.name == 'admin') {
+    if (this.userResponse?.role.name == 'admin') {
       this.router.navigate(['/admin']);
     }
   }
   switchLanguage(language: string) {
-    if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+    if (
+      typeof window !== 'undefined' &&
+      typeof window.localStorage !== 'undefined'
+    ) {
       try {
         localStorage.setItem('language', language);
       } catch (error) {

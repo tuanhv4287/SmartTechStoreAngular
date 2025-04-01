@@ -10,133 +10,81 @@
         <div class="mb-3">
           <label for="fullname" class="form-label">{{
             "FULLNAME" | translate
-          }}</label>
-          <input
-            type="text"
-            class="form-control"
-            id="fullname"
-            formControlName="fullname"
-            [class.is-invalid]="
+            }}</label>
+          <input type="text" class="form-control" id="fullname" formControlName="fullname" [class.is-invalid]="
               orderForm.get('fullname')!.invalid &&
               orderForm.get('fullname')!.touched
-            "
-          />
-          <div
-            *ngIf="
+            " />
+          <div *ngIf="
               orderForm.get('fullname')!.invalid &&
               orderForm.get('fullname')!.touched
-            "
-            class="invalid-feedback"
-          >
+            " class="invalid-feedback">
             {{ "NAME-IS-REQUIRED" | translate }}
           </div>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input
-            type="text"
-            class="form-control"
-            id="email"
-            formControlName="email"
-            [class.is-invalid]="
+          <input type="text" class="form-control" id="email" formControlName="email" [class.is-invalid]="
               orderForm.get('email')!.invalid && orderForm.get('email')!.touched
-            "
-          />
-          <div
-            *ngIf="
+            " />
+          <div *ngIf="
               orderForm.get('email')!.invalid && orderForm.get('email')!.touched
-            "
-            class="invalid-feedback"
-          >
+            " class="invalid-feedback">
             {{
-              orderForm.get("email")!.hasError("email")
-                ? ("INVALID-EMAIL" | translate)
-                : ("EMAIL-IS-REQUIRED" | translate)
+            orderForm.get("email")!.hasError("email")
+            ? ("INVALID-EMAIL" | translate)
+            : ("EMAIL-IS-REQUIRED" | translate)
             }}
           </div>
         </div>
         <div class="mb-3">
           <label for="phone" class="form-label">{{
             "PHONE" | translate
-          }}</label>
-          <input
-            type="text"
-            class="form-control"
-            id="phone"
-            formControlName="phone_number"
-            required
-            [class.is-invalid]="
+            }}</label>
+          <input type="text" class="form-control" id="phone" formControlName="phone_number" required [class.is-invalid]="
               orderForm.get('phone_number')!.invalid &&
               orderForm.get('phone_number')!.touched
-            "
-          />
-          <div
-            *ngIf="
+            " />
+          <div *ngIf="
               orderForm.get('phone_number')!.invalid &&
               orderForm.get('phone_number')!.touched
-            "
-            class="invalid-feedback"
-          >
+            " class="invalid-feedback">
             {{ "PHONE-NUMBER-IS-REQUIRED" | translate }}
           </div>
         </div>
         <div class="mb-3">
           <label for="address" class="form-label">{{
             "ADDRESS" | translate
-          }}</label>
-          <input
-            type="text"
-            class="form-control"
-            id="address"
-            formControlName="address"
-            required
-            [class.is-invalid]="
+            }}</label>
+          <input type="text" class="form-control" id="address" formControlName="address" required [class.is-invalid]="
               orderForm.get('address')!.invalid &&
               orderForm.get('address')!.touched
-            "
-          />
-          <div
-            *ngIf="
+            " />
+          <div *ngIf="
               orderForm.get('address')!.invalid &&
               orderForm.get('address')!.touched
-            "
-            class="invalid-feedback"
-          >
+            " class="invalid-feedback">
             {{ "ADDRESS-IS-REQUIRED" | translate }}
           </div>
         </div>
         <div class="mb-3">
           <label for="address" class="form-label">{{
             "NOTE" | translate
-          }}</label>
-          <input
-            type="text"
-            class="form-control"
-            id="note"
-            formControlName="note"
-            required
-          />
+            }}</label>
+          <input type="text" class="form-control" id="note" formControlName="note" required />
         </div>
         <div class="mb-3">
           <label for="shippingMethod">{{
             "SHIPPING-METHOD" | translate
-          }}</label>
-          <select
-            class="form-control"
-            id="shippingMethod"
-            formControlName="shipping_method"
-          >
+            }}</label>
+          <select class="form-control" id="shippingMethod" formControlName="shipping_method">
             <option value="express">Nhanh (Express)</option>
             <option value="normal">Thường (Normal)</option>
           </select>
         </div>
         <div class="mb-3">
           <label for="paymentMethod">{{ "PAYMENT-METHOD" | translate }}</label>
-          <select
-            class="form-control"
-            id="paymentMethod"
-            formControlName="payment_method"
-          >
+          <select class="form-control" id="paymentMethod" formControlName="payment_method">
             <option value="cod">Thanh toán khi nhận hàng (COD)</option>
             <option value="other">Thanh toán khác</option>
           </select>
@@ -159,11 +107,7 @@
             <tr>
               <td>
                 <div class="product-info">
-                  <img
-                    [src]="item.product.thumbnail"
-                    alt="Product Image"
-                    class="product-image"
-                  />
+                  <img [src]="item.product.thumbnail" alt="Product Image" class="product-image" />
                   <span class="product-name">{{ item.product.name }}</span>
                 </div>
               </td>
@@ -185,17 +129,9 @@
       <div class="mt-3">
         <h4 class="product-header">{{ "COUPON-CODE" | translate }}</h4>
         <div class="input-group">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="{{ 'ENTER-COUPON-CODE' | translate }}"
-            [(ngModel)]="couponCode"
-          />
-          <button
-            [disabled]="couponCode.length < 3"
-            class="btn btn-gradient"
-            type="button"
-          >
+          <input type="text" class="form-control" placeholder="{{ 'ENTER-COUPON-CODE' | translate }}"
+            [(ngModel)]="couponCode" />
+          <button [disabled]="couponCode.length < 3" class="btn btn-gradient" type="button">
             {{ "APPLY" | translate }}
           </button>
         </div>

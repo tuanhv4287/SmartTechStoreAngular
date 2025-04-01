@@ -6,27 +6,19 @@
           <li class="nav-item">
             <div>
               <ng-container *ngIf="userResponse">
-                <ng-container
-                  ngbPopover="Tài khoản của tôi,Đơn mua,Đăng xuất"
-                  popoverTitle="User Actions"
-                  triggers="click"
-                  [placement]="'bottom'"
-                >
-                  <a
-                    class="nav-link"
-                    [ngbPopover]="popoverContent"
-                    (click)="togglePopover($event)"
-                  >
+                <ng-container ngbPopover="Tài khoản của tôi,Đơn mua,Đăng xuất" popoverTitle="User Actions"
+                  triggers="click" [placement]="'bottom'">
+                  <a class="nav-link" [ngbPopover]="popoverContent" (click)="togglePopover($event)">
                     {{ "HELLO" | translate }} {{ userResponse.fullname }}
                   </a>
                   <ng-template #popoverContent>
                     <div>
                       <a class="popover-item" (click)="handleItemClick(0)">{{
                         "MY-ACCOUNT" | translate
-                      }}</a>
+                        }}</a>
                       <a class="popover-item" (click)="handleItemClick(2)">{{
                         "LOG-OUT" | translate
-                      }}</a>
+                        }}</a>
                     </div>
                   </ng-template>
                 </ng-container>
@@ -34,48 +26,31 @@
               <ng-container *ngIf="!userResponse">
                 <a class="nav-link" aria-disabled="true" routerLink="/login">{{
                   "LOGIN" | translate
-                }}</a>
+                  }}</a>
               </ng-container>
             </div>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              (click)="showAdminComponent('orders')"
-              routerLink="/admin/orders"
-              routerLinkActive="active"
-            >
+            <a class="nav-link" (click)="showAdminComponent('orders')" routerLink="/admin/orders"
+              routerLinkActive="active">
               <i class="fab fa-first-order icon"></i>{{ "ORDERS" | translate }}
             </a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              (click)="showAdminComponent('categories')"
-              routerLink="/admin/categories"
-              routerLinkActive="active"
-            >
-              <i class="fab fa-canadian-maple-leaf icon"></i
-              >{{ "CATEGORIES" | translate }}
+            <a class="nav-link" (click)="showAdminComponent('categories')" routerLink="/admin/categories"
+              routerLinkActive="active">
+              <i class="fab fa-canadian-maple-leaf icon"></i>{{ "CATEGORIES" | translate }}
             </a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              (click)="showAdminComponent('products')"
-              routerLink="/admin/products"
-              routerLinkActive="active"
-            >
+            <a class="nav-link" (click)="showAdminComponent('products')" routerLink="/admin/products"
+              routerLinkActive="active">
               <i class="fab fa-codepen icon"></i>{{ "PRODUCTS" | translate }}
             </a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              (click)="showAdminComponent('users')"
-              routerLink="/admin/users"
-              routerLinkActive="active"
-            >
+            <a class="nav-link" (click)="showAdminComponent('users')" routerLink="/admin/users"
+              routerLinkActive="active">
               <i class="fab fa-codepen icon"></i>{{ "USERS" | translate }}
             </a>
           </li>
@@ -86,70 +61,30 @@
   <div class="col-md-10 col-lg-10 p-0">
     <header class="header text-white d-flex justify-content-between">
       <div class="logo">
-        <img
-          alt="Logo"
-          loading="eager"
-          src="assets/LogoKokibigWhite.png"
-          srcset="
+        <img alt="Logo" loading="eager" src="assets/LogoKokibigWhite.png" srcset="
             assets/LogoKokibigWhite.png 1x,
             assets/LogoKokibigWhite.png 2x
-          "
-          width="35px"
-          height="auto"
-        />
+          " width="35px" height="auto" />
       </div>
       <div>
-        <a (click)="switchLanguage('vi')" class="flag"
-          ><img
-            src="assets/FlagVN.webp"
-            alt="Vietnam Flag"
-            srcset="assets/FlagVN.webp 1x, assets/FlagVN.webp 2x"
-        /></a>
+        <a (click)="switchLanguage('vi')" class="flag"><img src="assets/FlagVN.webp" alt="Vietnam Flag"
+            srcset="assets/FlagVN.webp 1x, assets/FlagVN.webp 2x" /></a>
         |
-        <a (click)="switchLanguage('en')" class="flag"
-          ><img
-            alt=""
-            loading="eager"
-            src="assets/FlagEU.webp"
-            srcset="assets/FlagEU.webp 1x, assets/FlagEU.webp 2x"
-            alt="AmericanFlag"
-        /></a>
+        <a (click)="switchLanguage('en')" class="flag"><img alt="" loading="eager" src="assets/FlagEU.webp"
+            srcset="assets/FlagEU.webp 1x, assets/FlagEU.webp 2x" alt="AmericanFlag" /></a>
       </div>
     </header>
     <div class="form-popup" id="changePWForm">
-      <form
-        class="form-container"
-        (ngSubmit)="submitForm()"
-        #changePWForm="ngForm"
-      >
+      <form class="form-container" (ngSubmit)="submitForm()" #changePWForm="ngForm">
         <h3>change MK</h3>
         <label for="password">Password:</label>
-        <input
-          type="text"
-          id="password"
-          name="password"
-          [(ngModel)]="this.password"
-          required
-          #password="ngModel"
-        />
+        <input type="text" id="password" name="password" [(ngModel)]="this.password" required #password="ngModel" />
         <label for="re-password">Re-Password:</label>
-        <input
-          type="text"
-          id="re-password"
-          name="re-password"
-          [(ngModel)]="this.password"
-          required
-          #rePassword="ngModel"
-        />
+        <input type="text" id="re-password" name="re-password" [(ngModel)]="this.password" required
+          #rePassword="ngModel" />
         <label for="new-password">New Password:</label>
-        <input
-          type="text"
-          id="new-password"
-          name="new-password"
-          [(ngModel)]="this.password"
-          required
-          #newPassword="ngModel"
-        />
+        <input type="text" id="new-password" name="new-password" [(ngModel)]="this.password" required
+          #newPassword="ngModel" />
         <div *ngIf="password.invalid && password.touched" class="error-message">
           Mật khẩu là bắt buộc!
         </div>
@@ -163,7 +98,7 @@
         </div>
       </form>
     </div>
-    <div class="col-md-12 col-lg-12 overflow-auto p-3">
+    <div class="col-md-12 col-lg-12 p-3">
       <router-outlet></router-outlet>
     </div>
   </div>

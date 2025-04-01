@@ -1,77 +1,42 @@
-<div class="form-container">
+<div class="container">
   <h2>Đổi Thông Tin Tài Khoản</h2>
   <form #updateAccountForm="ngForm" (ngSubmit)="update()" class="row">
     <div class="form-group col-md-6">
       <label for="username">Tên Người Dùng</label>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        required
-        placeholder="Nhập tên người dùng"
-        [ngModel]="fullName"
-      />
+      <input type="text" id="username" name="username" required placeholder="Nhập tên người dùng"
+        [ngModel]="fullName" />
     </div>
 
     <div class="form-group col-md-6">
       <label for="phone">Số điện thoại</label>
-      <input
-        type="text"
-        id="phone"
-        name="phone"
-        required
-        placeholder="Nhập số điện thoại"
-        [ngModel]="phoneNumber"
-      />
+      <input type="text" id="phone" name="phone" required placeholder="Nhập số điện thoại" [ngModel]="phoneNumber" />
     </div>
 
     <div class="form-group col-md-6">
       <label for="address">Địa chỉ</label>
-      <input
-        type="text"
-        id="address"
-        name="address"
-        required
-        placeholder="Nhập địa chỉ"
-        [ngModel]="address"
-      />
+      <input type="text" id="address" name="address" required placeholder="Nhập địa chỉ" [ngModel]="address" />
     </div>
 
     <div class="form-group col-md-6">
       <label for="old_password">Mật khẩu Cũ</label>
-      <input
-        type="password"
-        id="old_password"
-        name="old_password"
-        required
-        placeholder="Nhập mật khẩu cũ"
-      />
+      <input type="password" id="old_password" name="old_password" required placeholder="Nhập mật khẩu cũ" />
     </div>
 
     <div class="form-group col-md-6">
       <label for="new_password">Mật khẩu Mới</label>
-      <input
-        type="password"
-        id="new_password"
-        name="new_password"
-        required
-        placeholder="Nhập mật khẩu mới"
-      />
+      <input type="password" id="new_password" name="new_password" required placeholder="Nhập mật khẩu mới" />
     </div>
 
     <div class="form-group col-md-6">
       <label for="confirm_password">Xác Nhận Mật khẩu Mới</label>
-      <input
-        type="password"
-        id="confirm_password"
-        name="confirm_password"
-        required
-        placeholder="Xác nhận mật khẩu mới"
-      />
+      <input type="password" id="confirm_password" name="confirm_password" required
+        placeholder="Xác nhận mật khẩu mới" />
     </div>
 
-    <div class="form-group">
-      <button type="submit">Lưu Thay Đổi</button>
+    <div class="form-group" style="display: flex; justify-content: flex-end;">
+      <button class="save-btn" style="width: 150px" type="submit">
+        {{ "SAVE-CHANGE" | translate }}
+      </button>
     </div>
   </form>
 </div>

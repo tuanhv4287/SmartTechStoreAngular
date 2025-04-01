@@ -1,106 +1,90 @@
-@import '../../styles/shared-styles.scss';
-.container{
-    color: rgb(0, 0, 0);
-    height: 100vh;
+@import "../../styles/shared-styles.scss";
+.container {
+  color: rgb(0, 0, 0);
 }
-.register-form{
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 800px;
-    filter: drop-shadow(0.4rem 0.4rem 0.45rem rgba(0, 0, 30, 0.5));
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+.register-form {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 800px;
+  filter: drop-shadow(0.4rem 0.4rem 0.45rem rgba(0, 0, 30, 0.5));
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
 }
-.register-header{
-    text-align: center;
-    color: $shopapp-title-color;
-    margin-bottom: 20px;
+.register-header {
+  text-align: center;
+  color: $shopapp-title-color;
+  margin-bottom: 20px;
 }
-.form-control{
-    // background-color: transparent;
-    // border: none;
-    color: rgb(0, 0, 0);
+.form-control {
+  color: rgb(0, 0, 0);
 }
-.form-control:focus{
-    color: rgb(0, 0, 0);
-    // background-color: transparent;
-    outline: none;
-    // border-color: transparent;
+.form-control:focus {
+  color: rgb(0, 0, 0);
+  outline: none;
 }
 .form-group.password-field {
-    position: relative; /* Đảm bảo icon nằm trong ô input */
-  }
-.divider-nospace{
-    border-top: 1px solid white;
+  position: relative;
 }
-.password-field{
-    position: relative;
+.divider-nospace {
+  border-top: 1px solid white;
 }
-.password-toggle{
-    position: absolute;
-    top: 50%;
-    right: 27px;
-    transform: translateY(-50%);
-    color: $shopapp-title-color;
-    cursor: pointer;
+.password-field {
+  position: relative;
 }
-.checkbox-text{
-    color: rgb(243, 165, 42);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 27px;
+  transform: translateY(-50%);
+  color: $shopapp-title-color;
+  cursor: pointer;
 }
-.checkbox-text input[type="checkbox"]:checked{
-    border-color:rgb(0, 0, 0);
-    background-color: $shopapp-tint-color;
+.checkbox-text {
+  color: rgb(243, 165, 42);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
 }
-.form-check-input{
-    margin-right: 5px;
+.checkbox-text input[type="checkbox"]:checked {
+  border-color: rgb(0, 0, 0);
+  background-color: $shopapp-tint-color;
 }
-.register-link{
-    color: $shopapp-title-color;
-    text-decoration: none;
+.form-check-input {
+  margin-right: 5px;
 }
-.access-right{
-    margin-top: 20px;
-    width: 200px;
-    color: rgb(0, 0, 0);
-    border: 1px solid rgb(225, 64, 180);
+.register-link {
+  color: $shopapp-title-color;
+  text-decoration: none;
 }
-.access-right:focus{
-    border: 1px solid rgb(225, 64, 180);
+.form-control::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  opacity: 1;
 }
-.form-control::placeholder{
-    color: rgba(0, 0, 0, 0.4);
-    opacity: 1;
-} 
-.form-control:-ms-input-placeholder{
-    color: rgba(243, 165, 42, 0.4);
+.form-control:-ms-input-placeholder {
+  color: rgba(243, 165, 42, 0.4);
 }
-.register-button{
-    background: linear-gradient(to right, $shopapp-tint-color, rgb(126, 43, 237));
-    color: white;
-    border-radius: 30px;
-    width: 100%;
-    padding: 10px 0;
-    margin-top: 20px;
-    border: none;
+.register-button {
+  background: linear-gradient(to right, $shopapp-tint-color, rgb(126, 43, 237));
+  color: white;
+  border-radius: 30px;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 20px;
+  border: none;
 }
-.divider{
-    height: 1px;
-    background-color: rgb(243, 165, 42);
-    margin: 20px;
+.divider {
+  height: 1px;
+  background-color: rgb(243, 165, 42);
+  margin: 20px;
 }
 .text-danger {
-    margin-top: 5px; /* Tạo khoảng cách giữa thông báo lỗi và trường nhập */
-  }
-  /* Thay đổi màu icon trong các trình duyệt Webkit (Chrome, Safari, Edge) */
-  input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(190deg);
-    /* Bạn có thể thay đổi các giá trị trên để thay đổi màu icon */
-    width: 20px;  /* Điều chỉnh kích thước của icon */
-    height: 20px; /* Điều chỉnh kích thước của icon */
-  }
+  margin-top: 5px;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(190deg);
+  width: 20px;
+  height: 20px;
+}

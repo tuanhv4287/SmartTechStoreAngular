@@ -1,20 +1,24 @@
-import { inject, Injectable } from "@angular/core";
-import { TokenService } from "../../services/token.service";
-import { CanActivateFn, ActivatedRouteSnapshot, Router, RouterStateSnapshot } from "@angular/router";
+import { inject, Injectable } from '@angular/core';
+import { TokenService } from '../../services/token.service';
+import {
+  CanActivateFn,
+  ActivatedRouteSnapshot,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuard {
-    constructor(
-        private tokenService: TokenService,
-        private router: Router
-    ){}
-    canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
-    
+  constructor(private tokenService: TokenService, private router: Router) {}
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
     const isTokenExpired = this.tokenService.isTokenExpired();
     const isUserIdValid = parseInt(this.tokenService.getUserId(), 10) > 0;
-    console.log(isUserIdValid,'isUserIdValid');
+    console.log(isUserIdValid, 'isUserIdValid');
     if (!isTokenExpired && isUserIdValid) {
       return true;
     } else {
@@ -23,9 +27,11 @@ export class AuthGuard {
       this.router.navigate(['/login']);
       return false;
     }
-    }
+  }
 }
-export const AuthGuardFn: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean => {
-    
-    return inject(AuthGuard).canActivate(next,state);
-}
+export const AuthGuardFn: CanActivateFn = (
+  next: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+): boolean => {
+  return inject(AuthGuard).canActivate(next, state);
+};

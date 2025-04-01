@@ -9,6 +9,7 @@ import { AdminGuardFn } from "../guards/admin.guard";
 import { UserAdminComponent } from "./user/user-admin.component";
 import { DashboardAdminComponent } from "./dashboard/dashboard-admin.component";
 import { EditUserAdminComponent } from "./edit-user-admin/edit-user-admin.component";
+import { EditProductAdminComponent } from "./edit-product-admin/edit-product-admin.component";
 
 
 
@@ -63,6 +64,10 @@ export const adminRoutes: Routes = [
                 path: 'users/:id',
                 component: EditUserAdminComponent
             },
+            {
+                path: 'products/:id',
+                component: EditProductAdminComponent
+            },   
         ]
     }
 ];

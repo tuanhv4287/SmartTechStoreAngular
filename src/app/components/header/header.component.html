@@ -2,44 +2,29 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img
-          alt="Logo"
-          loading="eager"
-          src="assets/LogoKokibigWhite.png"
-          srcset="
+        <img alt="Logo" loading="eager" src="assets/LogoKokibigWhite.png" srcset="
             assets/LogoKokibigWhite.png 1x,
             assets/LogoKokibigWhite.png 2x
-          "
-          width="35px"
-          height="auto"
-        />
+          " width="35px" height="auto" />
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" routerLink="/">{{
               "HOME" | translate
-            }}</a>
+              }}</a>
           </li>
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-              >{{ "LIST" | translate }}</a
-            >
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">{{ "LIST" | translate }}</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" routerLink="/about">{{
                 "ABOUT" | translate
-              }}</a>
+                }}</a>
               <a class="dropdown-item" href="#">{{ "SERVICE" | translate }}</a>
               <a class="dropdown-item" routerLink="/contact">{{
                 "CONTACT" | translate
-              }}</a>
+                }}</a>
             </div>
           </li>
 
@@ -53,30 +38,22 @@
       </div>
       <div style="padding-right: 10px">
         <ng-container *ngIf="userResponse">
-          <ng-container
-            ngbPopover="Tài khoản của tôi,Đơn mua,Đăng xuất"
-            popoverTitle="User Actions"
-            triggers="click"
-            [placement]="'bottom'"
-          >
-            <a
-              class="nav-link"
-              [ngbPopover]="popoverContent"
-              (click)="togglePopover($event)"
-            >
+          <ng-container ngbPopover="Tài khoản của tôi,Đơn mua,Đăng xuất" popoverTitle="User Actions" triggers="click"
+            [placement]="'bottom'">
+            <a class="nav-link" [ngbPopover]="popoverContent" (click)="togglePopover($event)">
               {{ "HELLO" | translate }} {{ userResponse.fullname }}
             </a>
             <ng-template #popoverContent>
               <div class="popover-list">
                 <a class="popover-item" (click)="handleItemClick(0)">{{
                   "MY-ACCOUNT" | translate
-                }}</a>
+                  }}</a>
                 <a class="popover-item" (click)="handleItemClick(1)">{{
                   "ORDER" | translate
-                }}</a>
+                  }}</a>
                 <a class="popover-item" (click)="handleItemClick(2)">{{
                   "LOG-OUT" | translate
-                }}</a>
+                  }}</a>
               </div>
             </ng-template>
           </ng-container>
@@ -84,25 +61,15 @@
         <ng-container *ngIf="!userResponse">
           <a class="nav-link" aria-disabled="true" routerLink="/login">{{
             "LOGIN" | translate
-          }}</a>
+            }}</a>
         </ng-container>
       </div>
       <div>
-        <a (click)="switchLanguage('vi')" class="flag"
-          ><img
-            src="assets/FlagVN.webp"
-            alt="Vietnam Flag"
-            srcset="assets/FlagVN.webp 1x, assets/FlagVN.webp 2x"
-        /></a>
+        <a (click)="switchLanguage('vi')" class="flag"><img src="assets/FlagVN.webp" alt="Vietnam Flag"
+            srcset="assets/FlagVN.webp 1x, assets/FlagVN.webp 2x" /></a>
         |
-        <a (click)="switchLanguage('en')" class="flag"
-          ><img
-            alt=""
-            loading="eager"
-            src="assets/FlagEU.webp"
-            srcset="assets/FlagEU.webp 1x, assets/FlagEU.webp 2x"
-            alt="AmericanFlag"
-        /></a>
+        <a (click)="switchLanguage('en')" class="flag"><img alt="" loading="eager" src="assets/FlagEU.webp"
+            srcset="assets/FlagEU.webp 1x, assets/FlagEU.webp 2x" alt="AmericanFlag" /></a>
       </div>
     </div>
   </nav>

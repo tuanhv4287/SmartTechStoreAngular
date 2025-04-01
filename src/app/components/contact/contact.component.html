@@ -5,50 +5,25 @@
     <p class="text-center">Chúng tôi luôn sẵn sàng hỗ trợ bạn!</p>
 
     <form action="/submit-contact" method="POST">
-      <!-- <label for="name">Họ và Tên:</label>
-      <input type="text" id="name" name="name" required /> -->
-
       <div class="form-group col-md-12">
         <label for="name">{{ "FULLNAME" | translate }}</label>
-        <input
-          type="text"
-          class="form-control"
-          id="phoneNumber"
-          name="phone"
-          required
-        />
+        <input type="text" class="form-control" id="phoneNumber" name="phone" required />
         <div class="divider-nospace"></div>
         <div class="mt-3"></div>
       </div>
       <div class="form-group col-md-12">
         <label for="name">{{ "EMAIL" | translate }}</label>
-        <input
-          type="text"
-          class="form-control"
-          id="phoneNumber"
-          name="phone"
-          required
-        />
+        <input type="text" class="form-control" id="phoneNumber" name="phone" required />
         <div class="divider-nospace"></div>
         <div class="mt-3"></div>
       </div>
       <div class="form-group col-md-12">
         <label for="message">Lời nhắn</label>
-        <textarea
-          class="form-control"
-          id="message"
-          name="message"
-          rows="5"
-          required
-        ></textarea>
+        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
         <div class="divider-nospace"></div>
         <div class="mt-3"></div>
       </div>
-      <button
-        class="search-btn position-absolute"
-        style="right: 0; width: 80px"
-        type="submit"
-      >
+      <button class="search-btn position-absolute" style="right: 0; width: 80px" type="submit">
         Gửi
       </button>
     </form>

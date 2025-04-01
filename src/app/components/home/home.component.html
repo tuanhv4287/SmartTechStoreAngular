@@ -3,10 +3,7 @@
   <div class="intro-section">
     <div class="col-md-12 sliding-banner">
       <div class="col-md-12 slider">
-        <div
-          class="slide"
-          [ngStyle]="{ 'background-image': getCurrentSlideUrl() }"
-        >
+        <div class="slide" [ngStyle]="{ 'background-image': getCurrentSlideUrl() }">
           <div class="leftArrow" (click)="goToPrevious()">
             <i class="fa-regular fa-circle-left"></i>
           </div>
@@ -15,28 +12,16 @@
           </div>
         </div>
         <div class="dotsContainer">
-          <div
-            *ngFor="let slide of slides; let slideIndex = index"
-            class="dot"
-            (click)="goToSlide(slideIndex)"
-            [class.active]="slideIndex === currentIndex"
-          ></div>
+          <div *ngFor="let slide of slides; let slideIndex = index" class="dot" (click)="goToSlide(slideIndex)"
+            [class.active]="slideIndex === currentIndex"></div>
         </div>
       </div>
     </div>
   </div>
-  <!--Đoạn này có 1 ô searchbox bên trái, 1 combobox bên phải  -->
   <div class="search-box">
-    <input
-      type="text"
-      class="form-control search-input"
-      placeholder="{{ 'SEARCH-BY-PRODUCTS' | translate }}"
-      [(ngModel)]="keyword"
-    />
-    <select
-      class="form-control product-category"
-      [(ngModel)]="selectedCategoryId"
-    >
+    <input type="text" class="form-control search-input" placeholder="{{ 'SEARCH-BY-PRODUCTS' | translate }}"
+      [(ngModel)]="keyword" />
+    <select class="form-control product-category" [(ngModel)]="selectedCategoryId">
       <option [value]="0">{{ "ALL" | translate }}</option>
       <option *ngFor="let category of categories" [value]="category.id">
         {{ category.name }}
@@ -52,12 +37,7 @@
       <div class="col-md-5ths pb-3" *ngFor="let product of products">
         <div class="product-item">
           <div class="product-info">
-            <img
-              [src]="product.url"
-              alt="Product Image"
-              class="product-image"
-              (click)="onProductClick(product.id)"
-            />
+            <img [src]="product.url" alt="Product Image" class="product-image" (click)="onProductClick(product.id)" />
             <h3 class="product-name">
               {{ product.name }}
             </h3>
@@ -77,14 +57,10 @@
       </div>
     </div>
 
-    <app-pagination
-      [currentPage]="currentPage"
-      [totalPages]="totalPages"
-      [visiblePages]="visiblePages"
-      (pageChanged)="onPageChange($event)"
-    ></app-pagination>
+    <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" [visiblePages]="visiblePages"
+      (pageChanged)="onPageChange($event)"></app-pagination>
     <a class="scroll-to-top-button" *ngIf="showButton" (click)="scrollToTop()">
-      <i class="fa-solid fa-arrow-up"></i>
+      <i class="fa-solid fa-arrow-up" style="color: white"></i>
     </a>
     <app-footer></app-footer>
   </div>

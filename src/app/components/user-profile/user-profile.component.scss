@@ -1,23 +1,12 @@
-@import '../../styles/shared-styles.scss';
-.container{
-    color: white;
+@import "../../styles/shared-styles.scss";
+.product-header {
+  color: #333333;
 }
-.intro-section{
-    color: white;
-    padding: 20px;
-    text-align: center;
+.form-control {
+  background-color: $shopapp-background-color;
+  border: 1px solid rgb(29, 33, 54);
 }
-.product-header  {
-color: #333333;
+.form-control:focus {
+  border-color: white;
+  background-color: $shopapp-background-color;
 }
-.product-order{
-    color: green;
- }
-.form-control{
-    background-color: $shopapp-background-color;
-    border: 1px solid rgb(29, 33, 54);
-}
-.form-control:focus{
-    border-color: white;
-    background-color: $shopapp-background-color;
- }

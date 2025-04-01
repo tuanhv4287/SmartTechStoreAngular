@@ -1,12 +1,16 @@
-import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  provideZoneChangeDetection,
+} from '@angular/core';
 import { provideRouter, RouterModule } from '@angular/router';
-
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
-import { 
-  HttpClientModule, 
-  HTTP_INTERCEPTORS 
+import {
+  HttpClient,
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
 } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { adminRoutes } from './components/admin/admin-router';
@@ -20,21 +24,20 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideRouter(routes), 
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
     importProvidersFrom(RouterModule.forChild(adminRoutes)),
-    provideClientHydration(), 
-    provideHttpClient(withInterceptors([TokenInterceptor]),withFetch(),),
+    provideClientHydration(),
+    provideHttpClient(withInterceptors([TokenInterceptor]), withFetch()),
     provideAnimations(),
     importProvidersFrom(
       TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }))
-    
-    
-  ]
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient],
+        },
+      })
+    ),
+  ],
 };

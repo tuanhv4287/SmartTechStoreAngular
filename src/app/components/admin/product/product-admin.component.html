@@ -1,17 +1,11 @@
-<!-- Phần quản lý sản phẩm -->
 <div class="container-fluid">
   <div class="mt-3"></div>
   <h2 class="text-center">{{ "PRODUCT-MANAGEMENT" | translate }}</h2>
-  <!-- Tìm kiếm sản phẩm -->
   <div class="mb-3 mt-3">
     <div class="row mb-3 mt-3">
       <div class="col-md-8">
-        <input
-          type="text"
-          class="form-control search-input"
-          placeholder="{{ 'SEARCH-BY-PRODUCTS' | translate }}"
-          [(ngModel)]="keyword"
-        />
+        <input type="text" class="form-control search-input" placeholder="{{ 'SEARCH-BY-PRODUCTS' | translate }}"
+          [(ngModel)]="keyword" />
       </div>
       <div class="col-md-2">
         <button class="adminSearch-btn mr-3" (click)="searchProducts(keyword)">
@@ -25,7 +19,6 @@
       </div>
     </div>
 
-    <!-- Bảng danh sách sản phẩm -->
     <table>
       <thead>
         <tr>
@@ -49,10 +42,10 @@
           <td>${{ product.price }}</td>
           <td>
             <div style="display: flex; gap: 10px; justify-content: center">
-              <button (click)="editUser(product)" class="edit-btn">
+              <button (click)="editProduct(product)" class="edit-btn">
                 <i class="fa-solid fa-file-pen"></i>
               </button>
-              <button class="delete-btn" (click)="deleteUser(product.id)">
+              <button class="delete-btn" (click)="deleteProduct(product.id)">
                 <i class="fa-solid fa-trash"></i>
               </button>
             </div>
@@ -61,12 +54,8 @@
         }
       </tbody>
     </table>
-    <app-pagination
-      [currentPage]="currentPage"
-      [totalPages]="totalPages"
-      [visiblePages]="visiblePages"
-      (pageChanged)="onPageChange($event)"
-    ></app-pagination>
+    <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" [visiblePages]="visiblePages"
+      (pageChanged)="onPageChange($event)"></app-pagination>
   </div>
 
   <!-- Form thêm sản phẩm -->

@@ -5,19 +5,24 @@ import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OrderService } from '../../services/orderService';
 import { OrderResponse } from '../../responses/order/OrderResponse';
-import e, { response } from 'express';
-import { error } from 'console';
 import { environment } from '../../environments/environment';
 import { OrderDetail } from '../../models/order.detail';
 
 @Component({
   selector: 'app-order-detail',
   standalone: true,
-  imports: [HeaderComponent,FooterComponent,NgIf,NgFor,FormsModule,CommonModule],
+  imports: [
+    HeaderComponent,
+    FooterComponent,
+    NgIf,
+    NgFor,
+    FormsModule,
+    CommonModule,
+  ],
   templateUrl: './order-detail.component.html',
-  styleUrl: './order-detail.component.scss'
+  styleUrl: './order-detail.component.scss',
 })
-export class OrderDetailComponent implements OnInit{
+export class OrderDetailComponent implements OnInit {
   orderResponse: OrderResponse = {
     id: 0,
     user_id: 0,
@@ -33,18 +38,16 @@ export class OrderDetailComponent implements OnInit{
     shipping_address: '',
     shipping_date: new Date(),
     payment_method: '',
-    order_details: []
+    order_details: [],
   };
-  constructor(private orderService: OrderService){
-
-  }
+  constructor(private orderService: OrderService) {}
   ngOnInit(): void {
     this.getOrderDetails();
   }
-  getOrderDetails(): void{
-    const orderId =11;
+  getOrderDetails(): void {
+    const orderId = 11;
     this.orderService.getOrderById(orderId).subscribe({
-      next: (response:any)=>{
+      next: (response: any) => {
         this.orderResponse.id = response.id;
         this.orderResponse.user_id = response.user_id;
         this.orderResponse.fullname = response.fullname;
@@ -57,26 +60,22 @@ export class OrderDetailComponent implements OnInit{
           response.order_date[1] - 1,
           response.order_date[2]
         );
-        
-        this.orderResponse.order_details = response.order_details.map((order_detail: OrderDetail) => {
-          order_detail.product.thumbnail = `${environment.apiBaseUrl}/products/images/${order_detail.product.thumbnail}`
-          return order_detail
-        });
-        this.orderResponse
+
+        this.orderResponse.order_details = response.order_details.map(
+          (order_detail: OrderDetail) => {
+            order_detail.product.thumbnail = `${environment.apiBaseUrl}/products/images/${order_detail.product.thumbnail}`;
+            return order_detail;
+          }
+        );
+        this.orderResponse;
         this.orderResponse.shipping_method = response.shipping_method;
         this.orderResponse.status = response.status;
         this.orderResponse.total_money = response.total_money;
-
-
       },
-      complete:()=>{
-        
-
+      complete: () => {},
+      error: (error: any) => {
+        console.error('error', error);
       },
-      error:(error:any)=>{
-        console.error("error",error)
-      }
-    })
+    });
   }
-  
 }

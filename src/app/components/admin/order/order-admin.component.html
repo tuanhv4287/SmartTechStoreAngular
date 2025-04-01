@@ -3,12 +3,8 @@
   <h2 class="text-center">{{ "ORDER-MANAGEMENT" | translate }}</h2>
   <div class="row mb-3 mt-3">
     <div class="col-md-8">
-      <input
-        type="text"
-        class="form-control search-input"
-        placeholder="{{ 'SEARCH-BY-USERS' | translate }}"
-        [(ngModel)]="keyword"
-      />
+      <input type="text" class="form-control search-input" placeholder="{{ 'SEARCH-BY-USERS' | translate }}"
+        [(ngModel)]="keyword" />
     </div>
     <div class="col-md-2">
       <button class="adminSearch-btn" (click)="searchOrders(keyword)">
@@ -20,7 +16,6 @@
     <thead>
       <tr>
         <th>{{ "ID" | translate }}</th>
-        <!-- <th>User ID</th> -->
         <th>{{ "NAME" | translate }}</th>
         <th>Email</th>
         <th>{{ "PHONE" | translate }}</th>
@@ -38,7 +33,6 @@
         <td>
           {{ order.id }}
         </td>
-        <!-- <td>{{ order.user_id }}</td> -->
         <td>{{ order.fullname }}</td>
         <td>{{ order.email }}</td>
         <td>{{ order.phone_number }}</td>
@@ -62,10 +56,6 @@
     </tbody>
   </table>
 
-  <app-pagination
-    [currentPage]="currentPage"
-    [totalPages]="totalPages"
-    [visiblePages]="visiblePages"
-    (pageChanged)="onPageChange($event)"
-  ></app-pagination>
+  <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" [visiblePages]="visiblePages"
+    (pageChanged)="onPageChange($event)"></app-pagination>
 </div>

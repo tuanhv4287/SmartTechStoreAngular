@@ -1,48 +1,46 @@
-@import '../../styles/shared-styles.scss';
-.container{
+@import "../../styles/shared-styles.scss";
+.intro-section {
+  padding: 20px;
+  text-align: center;
 }
-.intro-section{
-    padding: 20px;
-    text-align: center;
+.form-control {
+  background-color: $shopapp-background-color;
+  border: 1px solid rgb(29, 33, 54);
 }
-.form-control{
-    background-color: $shopapp-background-color;
-    border: 1px solid rgb(29, 33, 54);
+.form-control:focus {
+  background-color: $shopapp-background-color;
 }
-.form-control:focus{
-    background-color: $shopapp-background-color;
- }
- table{
-    width: 100%;
-    border-radius: 10px;
-    border: none;
-    border-collapse: separate;
-    border: 1px solid rgb(0, 0, 0);
-    border-spacing: 0;
-    background-color: $shopapp-background-color;
- }
- th,td{
-    padding: 10px;
-    text-align: center;
- }
- .product-image{
-    width: 100px;
-    height: 100px;
-    border-radius: 5px;
-    margin-right: 10px ;
- }
- .product-info{
-    display: flex;
-    align-items: center;
- }
- .product-name{
-    color: rgb(0, 0, 0);
-    margin-right: 10px;
- }
- .btn-gradient{
-    background: #0f49e8;
-    color: rgb(255, 255, 255);
-    border-radius: 30px;
-    width: 200px;
-    
- }
+table {
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  border-collapse: separate;
+  border: 1px solid rgb(0, 0, 0);
+  border-spacing: 0;
+  background-color: $shopapp-background-color;
+}
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+.product-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.product-info {
+  display: flex;
+  align-items: center;
+}
+.product-name {
+  color: rgb(0, 0, 0);
+  margin-right: 10px;
+}
+.btn-gradient {
+  background: #0f49e8;
+  color: rgb(255, 255, 255);
+  border-radius: 30px;
+  width: 200px;
+}

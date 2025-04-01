@@ -3,14 +3,20 @@ $search-color: #0f49e8;
 $adminSearch-color: #7e8184;
 $edit-color: #f39c12;
 $delete-color: #e74c3c;
-$save-color: #0f49e8 ;
-$add-color: #2ecc71 ;
+$save-color: #0f49e8;
+$add-color: #2ecc71;
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 .text-center {
-    text-align: center;
+  text-align: center;
+}
+.center {
+  display: flex;
+  justify-self: center;
+  align-items: center;
 }
 .form-popup {
   display: none;
@@ -21,7 +27,6 @@ html, body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   padding-top: 60px;
-
 }
 .form-container {
   background-color: white;
@@ -40,7 +45,9 @@ html, body {
   color: #333;
 }
 
-.form-container input, .form-container select, .form-container textarea {
+.form-container input,
+.form-container select,
+.form-container textarea {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -58,7 +65,7 @@ html, body {
   width: 100px;
   border-radius: 30px;
   margin: 0px 10px;
-  align-self: flex-end; /* Đưa nút sang bên phải */
+  align-self: flex-end;
 }
 .form-container div {
   display: flex;
@@ -75,7 +82,6 @@ html, body {
   opacity: 0.8;
 }
 
-
 // Cấu trúc chung cho các nút
 .btn {
   min-width: 35px;
@@ -91,23 +97,22 @@ html, body {
   @extend .btn;
   background-color: $adminSearch-color;
   &:hover {
-    background-color: darken($adminSearch-color, 10%); // Làm tối màu nền khi hover
+    background-color: darken($adminSearch-color, 10%);
   }
 }
 .search-btn {
   @extend .btn;
   background-color: $search-color;
   &:hover {
-    background-color: darken($search-color, 10%); // Làm tối màu nền khi hover
+    background-color: darken($search-color, 10%);
   }
 }
-
 
 .edit-btn {
   @extend .btn;
   background-color: $edit-color;
   &:hover {
-    background-color: darken($edit-color, 10%); // Làm tối màu nền khi hover
+    background-color: darken($edit-color, 10%);
   }
 }
 
@@ -115,20 +120,20 @@ html, body {
   @extend .btn;
   background-color: $delete-color;
   &:hover {
-    background-color: darken($delete-color, 10%); // Làm tối màu nền khi hover
+    background-color: darken($delete-color, 10%);
   }
 }
 .add-btn {
   @extend .btn;
   background-color: $add-color;
   &:hover {
-    background-color: darken($add-color, 10%); // Làm tối màu nền khi hover
+    background-color: darken($add-color, 10%);
   }
 }
 .save-btn {
   @extend .btn;
   background-color: $save-color;
   &:hover {
-    background-color: darken($save-color, 10%); // Làm tối màu nền khi hover
+    background-color: darken($save-color, 10%);
   }
 }

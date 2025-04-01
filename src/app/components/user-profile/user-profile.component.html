@@ -8,81 +8,47 @@
       <div class="mb-3">
         <label for="fullname" class="form-label">{{
           "FULLNAME" | translate
-        }}</label>
-        <input
-          type="text"
-          class="form-control"
-          id="fullname"
-          formControlName="fullname"
-          [class.is-invalid]="
+          }}</label>
+        <input type="text" class="form-control" id="fullname" formControlName="fullname" [class.is-invalid]="
             userProfileForm.get('fullname')!.invalid &&
             userProfileForm.get('fullname')!.touched
-          "
-        />
-        <div
-          *ngIf="
+          " />
+        <div *ngIf="
             userProfileForm.get('fullname')!.invalid &&
             userProfileForm.get('fullname')!.touched
-          "
-          class="invalid-feedback"
-        >
+          " class="invalid-feedback">
           Họ và tên là trường bắt buộc.
         </div>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">{{
           "PASSWORD" | translate
-        }}</label>
-        <input
-          type="password"
-          class="form-control"
-          id="password"
-          formControlName="password"
-        />
+          }}</label>
+        <input type="password" class="form-control" id="password" formControlName="password" />
       </div>
       <div class="mb-3">
         <label for="retype_password" class="form-label">{{
           "RE-ENTER-PASSWORD" | translate
-        }}</label>
-        <input
-          type="password"
-          class="form-control"
-          id="retype_password"
-          formControlName="retype_password"
-        />
+          }}</label>
+        <input type="password" class="form-control" id="retype_password" formControlName="retype_password" />
       </div>
       <div class="mb-3">
         <label for="address" class="form-label">{{
           "ADDRESS" | translate
-        }}</label>
-        <input
-          type="text"
-          class="form-control"
-          id="address"
-          formControlName="address"
-        />
+          }}</label>
+        <input type="text" class="form-control" id="address" formControlName="address" />
       </div>
       <div class="mb-3">
         <label for="phone_number" class="form-label">{{
           "PHONE" | translate
-        }}</label>
-        <input
-          type="text"
-          class="form-control"
-          id="phone_number"
-          formControlName="phone_number"
-        />
+          }}</label>
+        <input type="text" class="form-control" id="phone_number" formControlName="phone_number" />
       </div>
       <div class="mb-3">
         <label for="date_of_birth" class="form-label">{{
           "DATE-OF-BIRTH" | translate
-        }}</label>
-        <input
-          type="date"
-          class="form-control"
-          id="date_of_birth"
-          formControlName="date_of_birth"
-        />
+          }}</label>
+        <input type="date" class="form-control" id="date_of_birth" formControlName="date_of_birth" />
       </div>
       <div class="mb-3 d-flex justify-content-center">
         <button class="save-btn" (click)="save()">

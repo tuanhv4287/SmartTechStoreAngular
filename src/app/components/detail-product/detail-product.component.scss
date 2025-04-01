@@ -1,87 +1,71 @@
-.container{
+.container {
   color: rgb(0, 0, 0);
 }
-.intro-section{
-    color: rgb(7, 7, 7);
-    padding: 20px;
-    text-align: center;
-    
+.intro-section {
+  color: rgb(7, 7, 7);
+  padding: 20px;
+  text-align: center;
 }
-.thumbnail-container{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    margin-bottom: 20px;
+.thumbnail-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.thumbnail-item{
-    width: 120px;
-    height: 120px;
-    margin-right: 5px;
-    //Thêm khoảng cách ngang giữa mỗi ảnh
+.thumbnail-item {
+  width: 120px;
+  height: 120px;
+  margin-right: 5px;
 }
-.thumbnail-item:last-child{
-    margin-right: 0px;
-    //xóa khoảng cách ngang ảnh cuối cùng
+.thumbnail-item:last-child {
+  margin-right: 0px;
 }
-.thumbnail-item img{
+.thumbnail-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.thumbnail-item.active{
+.thumbnail-item.active {
   border: 2px solid white;
 }
-.product-item{
-    background-color: rgb(19, 23, 42);
-    border: 1px solid rgb(35, 39, 61);
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-    color: white;
-  }
-  .product-description{
-    color: rgb(173, 187, 203);
-  }
-  .product-warranty{
-    color: rgb(242, 126, 212);
-  }
-  .product-rating{
-    color: #FFD700;
-    margin-top: 10px;
-  }
-  .product-actions{
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 20px;
-  }
-  .space-x{
-    margin: 0 5px;
-  }
-  .product-image{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
- }
- .product-actions button{
- margin-right: 10px;
+.product-item {
+  background-color: rgb(19, 23, 42);
+  border: 1px solid rgb(35, 39, 61);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: white;
 }
-.border-wrapper{
+.product-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product-actions button {
+  margin-right: 10px;
+}
+.border-wrapper {
   border: 1px solid rgb(0, 0, 0);
 }
-.product-quantity{
+.product-quantity {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-top: 10px;
 }
-.product-quantity button{
+.product-quantity button {
   background-color: transparent;
   border: none;
   color: rgb(0, 0, 0);
   font-size: 16px;
   cursor: pointer;
 }
-.product-quantity input{
+.product-quantity input {
   background-color: transparent;
   border: none;
   color: rgb(0, 0, 0);
@@ -90,9 +74,6 @@
   width: 40px;
   margin: 0 10px;
 }
-.product-quantity input:focus{
+.product-quantity input:focus {
   outline: none;
-}
-.carousel-inner {
-
 }
