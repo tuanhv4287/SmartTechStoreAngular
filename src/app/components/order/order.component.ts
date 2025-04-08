@@ -37,6 +37,7 @@ export class OrderComponent implements OnInit {
   orderForm: FormGroup;
   cartItems: { product: Product; quantity: number }[] = [];
   totalAmount: number = 0;
+  quantity: number = 0;
   couponCode = '';
   orderData: OrderDTO = {
     user_id: '2',

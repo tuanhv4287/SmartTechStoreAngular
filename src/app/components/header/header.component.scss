@@ -39,8 +39,35 @@ header {
   height: 30px;
   cursor: pointer;
 }
-@media (max-width: 481px) {
+.user-detail {
+  cursor: pointer;
+  padding-right: 10px;
+}
+.navMenu {
+  position: absolute;
+  width: 40%;
+  min-height: 250px;
+  background-color: rgb(255, 255, 255);
+  left: 0;
+  top: 40px;
+  z-index: 1;
+  border: 0.25px solid rgba(0, 0, 0, 0.267);
+}
+.navbar[_ngcontent-ng-c1510010964]
+  .container[_ngcontent-ng-c1510010964]
+  .navMenu
+  .navbar-nav[_ngcontent-ng-c1510010964]
+  .nav-link[_ngcontent-ng-c1510010964] {
+  color: rgb(0, 0, 0);
+}
+@media (max-width: 768px) {
   .navbar {
     padding: 5px 10px;
+  }
+  .user-detail {
+    padding-right: 0;
+  }
+  .navbar-collapse {
+    transition: max-height 0.3s ease-in-out; /* Thêm hiệu ứng khi mở/đóng menu */
   }
 }

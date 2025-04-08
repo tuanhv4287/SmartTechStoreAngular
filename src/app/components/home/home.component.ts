@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   categories: Category[] = [];
   selectedCategoryId: number = 0;
   currentPage: number = 1;
-  itemsPerPage: number = 12;
+  itemsPerPage: number = 15;
   pages: number[] = [];
   totalPages: number = 0;
   visiblePages: number[] = [];
@@ -59,24 +59,28 @@ export class HomeComponent implements OnInit {
   }
   slides: SlideInterface[] = [
     {
-      url: 'https://data.webnhiepanh.com/wp-content/uploads/2020/11/21105453/phong-canh-1.jpg',
+      url: '../../assets/banner/banner-ip16-02.png',
       title: '1',
     },
     {
-      url: 'https://media.hanamtv.vn/upload/image/202112/medium/71038_cd71e10749fea767b93941678cfcee60.jpg',
+      url: '../../assets/banner/banner-ip16-01.png',
       title: '2',
     },
     {
-      url: 'https://phongnhaexplorer.com/wp-content/uploads/2021/08/du-lich-an-giang-b.jpg',
+      url: '../../assets/banner/banner-ip16-03.png',
       title: '3',
     },
     {
-      url: 'https://vapa.vn/wp-content/uploads/2022/12/anh-canh-dep-001-1.jpg',
+      url: '../../assets/banner/banner-ip16-04.png',
       title: '4',
     },
     {
-      url: 'https://kyluc.vn/userfiles/upload/images/modules/news/2016/7/11/0_hinh-anh-thien-nhien-dep-nhat-th-gioi.jpg',
+      url: '../../assets/banner/banner-ip16-05.png',
       title: '5',
+    },
+    {
+      url: '../../assets/banner/banner-ip16-06.png',
+      title: '6',
     },
   ];
   currentIndex: number = 0;

@@ -111,7 +111,9 @@
                   <span class="product-name">{{ item.product.name }}</span>
                 </div>
               </td>
-              <td>{{ item.quantity }}</td>
+              <td>
+                <input type="number" (value)="item.quantity" [ngModel]="item.quantity" />
+              </td>
               <td>$ {{ item.product.price | number : "1.2-2" }}</td>
               <td>
                 $ {{ item.product.price * item.quantity | number : "1.2-2" }}

@@ -1,13 +1,19 @@
-.center{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
-.team-member{
-    display: flex;
+.team-member {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  h2 {
     text-align: center;
-    flex-direction: column;
-    align-items: center;
+    padding-top: 15px;
+  }
 }

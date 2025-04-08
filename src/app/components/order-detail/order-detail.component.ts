@@ -7,6 +7,7 @@ import { OrderService } from '../../services/orderService';
 import { OrderResponse } from '../../responses/order/OrderResponse';
 import { environment } from '../../environments/environment';
 import { OrderDetail } from '../../models/order.detail';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-detail',
@@ -40,13 +41,23 @@ export class OrderDetailComponent implements OnInit {
     payment_method: '',
     order_details: [],
   };
-  constructor(private orderService: OrderService) {}
+  orderId: number = 0;
+  constructor(
+    private orderService: OrderService,
+    private route: ActivatedRoute
+  ) {}
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      this.orderId = +params.get('id')!; // Sử dụng 'id' để lấy tham số từ URL, '+' để chuyển đổi sang kiểu số
+    });
+    const idParam = this.orderId;
+    if (idParam !== null) {
+      this.orderId = +idParam;
+    }
     this.getOrderDetails();
   }
   getOrderDetails(): void {
-    const orderId = 11;
-    this.orderService.getOrderById(orderId).subscribe({
+    this.orderService.getOrderById(this.orderId).subscribe({
       next: (response: any) => {
         this.orderResponse.id = response.id;
         this.orderResponse.user_id = response.user_id;

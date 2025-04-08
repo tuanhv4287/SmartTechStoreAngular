@@ -94,6 +94,9 @@ export class UserProfileComponent implements OnInit {
       };
       this.userService.updateUserDetail(this.token, updateUserDTO).subscribe({
         next: (response: any) => {
+          alert(
+            'Account information updated successfully.\n(Thay đổi thông tin tài khoản thành công.)'
+          );
           this.userService.removeUserFromLocalStorage();
           this.tokenService.removeToken();
           this.router.navigate(['/login']);

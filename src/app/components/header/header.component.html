@@ -1,13 +1,14 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <i class="fa-solid fa-list-ul" style="font-size: 24px" *ngIf="isMobile" (click)="toggleMenu()"></i>
+      <a class="navbar-brand" href="#" *ngIf="!isMobile">
         <img alt="Logo" loading="eager" src="assets/LogoKokibigWhite.png" srcset="
             assets/LogoKokibigWhite.png 1x,
             assets/LogoKokibigWhite.png 2x
           " width="35px" height="auto" />
       </a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navMenu" *ngIf="navMobile">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" routerLink="/">{{
@@ -36,13 +37,45 @@
           </li>
         </ul>
       </div>
-      <div style="padding-right: 10px">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="!isMobile">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/">{{
+              "HOME" | translate
+              }}</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">{{ "LIST" | translate }}</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="/about">{{
+                "ABOUT" | translate
+                }}</a>
+              <a class="dropdown-item" href="#">{{ "SERVICE" | translate }}</a>
+              <a class="dropdown-item" routerLink="/contact">{{
+                "CONTACT" | translate
+                }}</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" aria-expanded="false" routerLink="/orders">
+              <i class="fas fa-shopping-cart icon" routerLink="/orders"></i>
+              {{ "CART" | translate }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="user-detail">
         <ng-container *ngIf="userResponse">
           <ng-container ngbPopover="Tài khoản của tôi,Đơn mua,Đăng xuất" popoverTitle="User Actions" triggers="click"
             [placement]="'bottom'">
-            <a class="nav-link" [ngbPopover]="popoverContent" (click)="togglePopover($event)">
+            <a class="nav-link user-detail" *ngIf="!isMobile" [ngbPopover]="popoverContent"
+              (click)="togglePopover($event)">
               {{ "HELLO" | translate }} {{ userResponse.fullname }}
             </a>
+            <i class="fa-solid fa-user" style="font-size: 24px" *ngIf="isMobile" [ngbPopover]=" popoverContent"
+              (click)="togglePopover($event)"></i>
             <ng-template #popoverContent>
               <div class="popover-list">
                 <a class="popover-item" (click)="handleItemClick(0)">{{
